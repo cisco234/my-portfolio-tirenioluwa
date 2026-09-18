@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DETTY DECEMBER FEST — Case Study</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+
+  :root {
+    --black: #0b0b0c;
+    --red: #890000;
+    --gold: #e8ab2d;
+    --green: #314528;
+    --white: #f7f5f2;
+    --grey: #9a9a96;
+    --muted: #d8d6d2;
+    --line: rgba(247, 245, 242, 0.14);
+  }
+
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Satoshi', 'Inter', Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+
+  img {
+    max-width: 100%;
+  }
+
+
+  .display {
+    font-family: 'Satoshi', 'Archivo Black', 'Inter', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+  }
+
+
+
+  /* =========================================================
+     HERO
+  ========================================================= */
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-size: cover;
+    background-position: center 30%;
+    padding: 8vw 6vw 6vw;
+  }
+
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(11, 11, 12, 0.15) 0%,
+      rgba(11, 11, 12, 0.35) 45%,
+      rgba(11, 11, 12, 0.94) 100%
+    );
+    pointer-events: none;
+  }
+
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+  }
+
+
+  .hero-tag {
+    color: var(--grey);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.25rem;
+  }
+
+
+  .hero .tagline {
+    font-style: italic;
+    color: var(--grey);
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    margin-top: 1rem;
+    max-width: 40ch;
+  }
+
+
+  .meta-row {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    max-width: 1000px;
+  }
+
+
+  .meta-row div {
+    min-width: 150px;
+  }
+
+
+  .meta-row .label {
+    display: block;
+    color: var(--grey);
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.7rem;
+  }
+
+
+
+  /* =========================================================
+     TEXT SECTIONS
+  ========================================================= */
+
+  section.beat {
+    padding: 8rem 6vw;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+
+  section.beat.wide {
+    max-width: 1100px;
+  }
+
+
+  section.beat .num {
+    color: var(--red);
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+
+  section.beat h2.display {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 2rem;
+    color: var(--white);
+  }
+
+
+  section.beat p {
+    font-size: clamp(1.02rem, 1.5vw, 1.15rem);
+    color: var(--muted);
+    max-width: 68ch;
+    margin-bottom: 1.35rem;
+  }
+
+
+  section.beat p:last-child {
+    margin-bottom: 0;
+  }
+
+
+  .emphasis {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+
+  .section-intro {
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    color: var(--white);
+  }
+
+
+  .keyword-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+
+  .keyword-pill {
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.5rem 1.1rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+
+
+
+  /* =========================================================
+     IMAGE SYSTEM
+  ========================================================= */
+
+  .img-single {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 6vw 2rem;
+  }
+
+
+  .img-single.large {
+    max-width: 1200px;
+  }
+
+
+  .img-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 6vw 2rem;
+  }
+
+
+  .img-trio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 6vw 2rem;
+  }
+
+
+  .img-four {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 6vw 2rem;
+  }
+
+
+  .img-pair img,
+  .img-trio img,
+  .img-four img,
+  .img-single img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--line);
+    cursor: zoom-in;
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease;
+    background: #000;
+  }
+
+
+  .img-pair img:hover,
+  .img-trio img:hover,
+  .img-four img:hover,
+  .img-single img:hover {
+    opacity: 0.88;
+  }
+
+
+  .img-caption {
+    text-align: center;
+    color: var(--grey);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    max-width: 680px;
+    margin: 0 auto 4rem;
+    padding: 0 6vw;
+  }
+
+
+  .mark-image img {
+    background: #000;
+    object-fit: contain;
+  }
+
+
+
+  /* =========================================================
+     MASONRY IMAGE SYSTEM
+  ========================================================= */
+
+  /*
+    Masonry is deliberately separate from the normal image system.
+
+    The standard pair/trio layouts remain untouched where image
+    relationships matter.
+
+    Masonry is used for reference collections, iterations,
+    campaign imagery and system galleries where different
+    image proportions are part of the visual language.
+  */
+
+  .masonry {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 6vw 2rem;
+
+    column-count: 3;
+    column-gap: 1.2rem;
+  }
+
+
+  .masonry-item {
+    display: block;
+    width: 100%;
+    margin: 0 0 1.2rem;
+
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+
+    page-break-inside: avoid;
+  }
+
+
+  .masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+
+    border: 1px solid var(--line);
+    background: #000;
+
+    cursor: zoom-in;
+
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease;
+  }
+
+
+  .masonry-item img:hover {
+    opacity: 0.88;
+  }
+
+
+  /*
+    Slightly wider masonry system for the final
+    "system, not the poster" gallery.
+  */
+
+  .masonry.gallery-masonry {
+    max-width: 1250px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    column-count: 4;
+    column-gap: 0.9rem;
+  }
+
+
+  .masonry.gallery-masonry .masonry-item {
+    margin-bottom: 0.9rem;
+  }
+
+
+  /*
+    The old .wide class is intentionally neutralised
+    inside masonry. Masonry determines width through
+    the column itself rather than forcing a grid span.
+  */
+
+  .gallery-masonry .wide {
+    grid-column: auto;
+  }
+
+
+
+  /* =========================================================
+     SWATCH STRIP
+  ========================================================= */
+
+  .swatch-row {
+    display: flex;
+    gap: 0;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 6vw 1rem;
+    border: 1px solid var(--line);
+  }
+
+
+  .swatch {
+    flex: 1;
+    height: 140px;
+  }
+
+
+  .swatch-labels {
+    display: flex;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 6vw 2rem;
+    font-size: 0.75rem;
+    color: var(--grey);
+    letter-spacing: 0.03em;
+  }
+
+
+  .swatch-labels div {
+    flex: 1;
+    text-align: center;
+  }
+
+
+
+  /* =========================================================
+     FULL BLEED DIVIDERS
+  ========================================================= */
+
+  .divider {
+    width: 88%;
+    height: 1px;
+    background: var(--line);
+    margin: 2rem auto;
+  }
+
+
+  .red-rule {
+    width: 40px;
+    height: 3px;
+    background: var(--red);
+    margin: 2rem 0;
+  }
+
+
+
+  /* =========================================================
+     GALLERY
+  ========================================================= */
+
+  .gallery-section {
+    padding: 8rem 6vw 4rem;
+    text-align: center;
+  }
+
+
+  .gallery-section .num {
+    color: var(--red);
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+
+  .gallery-section h2.display {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 1.5rem;
+  }
+
+
+  .gallery-section > p {
+    color: var(--muted);
+    max-width: 68ch;
+    margin: 0 auto 4rem;
+    font-size: clamp(1.02rem, 1.5vw, 1.15rem);
+  }
+
+
+  /*
+    Kept for compatibility with any future standard
+    gallery-grid sections.
+  */
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.9rem;
+    max-width: 1250px;
+    margin: 0 auto;
+  }
+
+
+  .gallery-grid img {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    object-fit: contain;
+    display: block;
+    border: 1px solid var(--line);
+    cursor: zoom-in;
+    transition: opacity 180ms ease;
+    background: #000;
+  }
+
+
+  .gallery-grid img:hover {
+    opacity: 0.88;
+  }
+
+
+  .gallery-grid .wide {
+    grid-column: span 2;
+  }
+
+
+
+  /* =========================================================
+     THANK YOU
+  ========================================================= */
+
+  .closing-line {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 6vw 8rem;
+  }
+
+
+  .closing-line p {
+    color: var(--grey);
+    font-style: italic;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+  }
+
+
+
+  /* =========================================================
+     FOOTER
+  ========================================================= */
+
+  footer {
+    text-align: center;
+    padding: 4rem 6vw 6rem;
+    color: var(--grey);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--line);
+  }
+
+
+
+  /* =========================================================
+     LIGHTBOX
+  ========================================================= */
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 4.5rem 5rem;
+
+    background: rgba(0, 0, 0, 0.95);
+  }
+
+
+  .lightbox.is-open {
+    display: flex;
+  }
+
+
+  .lightbox-image {
+    max-width: min(92vw, 1500px);
+    max-height: 88vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+    display: block;
+
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+
+    user-select: none;
+  }
+
+
+  .lightbox-close,
+  .lightbox-nav {
+    position: absolute;
+
+    border: 0;
+    background: rgba(247, 245, 242, 0.1);
+    color: var(--white);
+
+    width: 3rem;
+    height: 3rem;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    cursor: pointer;
+    font: inherit;
+
+    transition: background 150ms ease;
+  }
+
+
+  .lightbox-close:hover,
+  .lightbox-nav:hover {
+    background: rgba(247, 245, 242, 0.2);
+  }
+
+
+  .lightbox-close {
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+
+  .lightbox-prev {
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+  }
+
+
+  .lightbox-next {
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+  }
+
+
+  .lightbox-info {
+    position: absolute;
+
+    left: 50%;
+    bottom: 1.25rem;
+
+    transform: translateX(-50%);
+
+    max-width: 80vw;
+
+    text-align: center;
+
+    color: var(--grey);
+    font-size: 0.8rem;
+  }
+
+
+  .lightbox-caption {
+    color: var(--white);
+    margin-bottom: 0.2rem;
+  }
+
+
+
+  /* =========================================================
+     RESPONSIVE
+  ========================================================= */
+
+  @media (max-width: 1000px) {
+
+    .masonry {
+      column-count: 2;
+    }
+
+
+    .masonry.gallery-masonry {
+      column-count: 3;
+    }
+
+  }
+
+
+  @media (max-width: 800px) {
+
+    .img-trio {
+      grid-template-columns: 1fr;
+    }
+
+
+    .img-four {
+      grid-template-columns: 1fr;
+    }
+
+
+    .gallery-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+
+    .gallery-grid .wide {
+      grid-column: span 2;
+    }
+
+
+    .masonry {
+      column-count: 2;
+      column-gap: 1rem;
+    }
+
+
+    .masonry-item {
+      margin-bottom: 1rem;
+    }
+
+
+    .masonry.gallery-masonry {
+      column-count: 2;
+      column-gap: 0.8rem;
+    }
+
+
+    .masonry.gallery-masonry .masonry-item {
+      margin-bottom: 0.8rem;
+    }
+
+
+    section.beat {
+      padding: 6rem 6vw;
+    }
+
+
+    .swatch {
+      height: 100px;
+    }
+
+  }
+
+
+  @media (max-width: 640px) {
+
+    .hero {
+      min-height: 88vh;
+      padding: 7rem 6vw 3.5rem;
+    }
+
+
+    .meta-row {
+      gap: 1.5rem;
+    }
+
+
+    .img-pair {
+      grid-template-columns: 1fr;
+    }
+
+
+    .masonry,
+    .masonry.gallery-masonry {
+      column-count: 1;
+    }
+
+
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+
+
+    .gallery-grid .wide {
+      grid-column: span 1;
+    }
+
+
+    .gallery-grid img {
+      min-height: auto;
+    }
+
+
+    section.beat {
+      padding: 5rem 6vw;
+    }
+
+
+    .lightbox {
+      padding: 4rem 1rem;
+    }
+
+
+    .lightbox-image {
+      max-width: 96vw;
+      max-height: 82vh;
+    }
+
+
+    .lightbox-close {
+      top: 0.75rem;
+      right: 0.75rem;
+    }
+
+
+    .lightbox-prev {
+      left: 0.5rem;
+    }
+
+
+    .lightbox-next {
+      right: 0.5rem;
+    }
+
+  }
+
+</style>
+</head>
+
+
+<body>
+
+
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
+
+  <header
+    class="hero"
+    id="top"
+    data-asset-background="hero"
+  >
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+      <p class="hero-tag">
+        DETTY DECEMBER FEST — Brand Identity System
+      </p>
+
+      <p class="tagline">
+        A festival identity built from three words and worked all the way through to merch.
+      </p>
+
+      <div class="meta-row">
+
+        <div>
+          <span class="label">Role</span>
+          Brand Identity &amp; Graphic Design
+        </div>
+
+        <div>
+          <span class="label">Scope</span>
+          Concept, colour system, logo, type, applications
+        </div>
+
+        <div>
+          <span class="label">Status</span>
+          Concept project
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =========================================================
+       01 — THE BRIEF
+  ========================================================= -->
+
+  <section class="beat">
+
+    <p class="num">01</p>
+
+    <h2 class="display">
+      The Brief
+    </h2>
+
+    <p>
+      DETTY DECEMBER FEST is Lagos's own December — the run of concerts, block parties
+      and homecomings that take over the city every year. The identity needed to
+      carry that energy across a full campaign: a main flyer, individual artist
+      posters, merch, and everything in between, without turning into a set of
+      unrelated graphics that happened to share a logo.
+    </p>
+
+    <p>
+      Before touching colour or type, the brief got reduced to keywords. Running
+      the brief through a synonym pass surfaced the words that actually mattered:
+      energy, vibrancy, diversity, and a specific kind of cultural connection —
+      not generic "party" energy, but a Lagos one.
+    </p>
+
+    <div class="keyword-row">
+      <span class="keyword-pill">Youthful</span>
+      <span class="keyword-pill">Energetic</span>
+      <span class="keyword-pill">Bold Expression</span>
+      <span class="keyword-pill">Diversity</span>
+      <span class="keyword-pill">Vibrant</span>
+      <span class="keyword-pill">Cultural Connectivity</span>
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================================
+       02 — DIRECTION AND MOOD
+  ========================================================= -->
+
+  <section class="beat">
+
+    <p class="num">02</p>
+
+    <h2 class="display">
+      Direction &amp; Mood
+    </h2>
+
+    <p>
+      The moodboard pulled from two places at once: editorial Afrofuturist
+      portraiture with hard colour blocking, and straight fashion photography —
+      sunglasses, statement accessories, clean product shots. The point wasn't to
+      copy either register but to find where they overlap: bold, graphic,
+      confident, still rooted in the culture rather than abstracted from it.
+    </p>
+
+  </section>
+
+
+  <!-- MASONRY: MOODBOARD -->
+
+  <div class="masonry">
+
+    <div class="masonry-item">
+      <img
+        src="assets/moodboard-01.png"
+        alt="Moodboard reference: portrait on a red background"
+      >
+    </div>
+
+    <div class="masonry-item">
+      <img
+        src="assets/moodboard-02.png"
+        alt="Moodboard reference: African mask illustration on teal and gold"
+      >
+    </div>
+
+    <div class="masonry-item">
+      <img
+        src="assets/moodboard-03.png"
+        alt="Moodboard reference: blindfolded figure on turquoise"
+      >
+    </div>
+
+    <div class="masonry-item">
+      <img
+        src="assets/moodboard-04.png"
+        alt="Moodboard reference: cream heeled shoes"
+      >
+    </div>
+
+    <div class="masonry-item">
+      <img
+        src="assets/moodboard-05.png"
+        alt="Moodboard reference: figure in a beret and gold sunglasses"
+      >
+    </div>
+
+    <div class="masonry-item">
+      <img
+        src="assets/moodboard-06.png"
+        alt="Moodboard reference: figure in orange sunglasses on yellow"
+      >
+    </div>
+
+  </div>
+
+
+  <p class="img-caption">
+    Reference pulls that set the tone before any design decisions were made:
+    bold colour blocking, confident portraiture, product-level polish.
+  </p>
+
+
+
+  <!-- =========================================================
+       03 — THE COLOUR SYSTEM
+  ========================================================= -->
+
+  <section class="beat">
+
+    <p class="num">03</p>
+
+    <h2 class="display">
+      The Colour System
+    </h2>
+
+    <p>
+      The first pass at the palette used a pink in place of red. It read closer
+      to a generic party flyer than to anything specifically Nigerian. Swapping
+      that pink for a deep red — alongside gold, black, dark green and an
+      off-white — pulled the palette toward the Nigerian flag without spelling
+      it out literally, and gave the identity a set of colours that could hold
+      up as flat blocks, not just gradients and photo overlays.
+    </p>
+
+  </section>
+
+
+  <!-- DELIBERATE COMPARISON — KEEP AS PAIR -->
+
+  <div class="img-pair">
+
+    <img
+      src="assets/colour-first-choice.png"
+      alt="First colour choice: black, gold, pink, brown, white"
+    >
+
+    <img
+      src="assets/colour-final-choice.png"
+      alt="Final colour choice: black, gold, red, green, white"
+    >
+
+  </div>
+
+
+  <p class="img-caption">
+    First choice, left — final choice, right. Swapping pink for a deep red changed
+    the whole register of the palette.
+  </p>
+
+
+  <div class="swatch-row">
+
+    <div class="swatch" style="background:#1a1a1a"></div>
+    <div class="swatch" style="background:#e8ab2d"></div>
+    <div class="swatch" style="background:#890000"></div>
+    <div class="swatch" style="background:#314528"></div>
+    <div class="swatch" style="background:#e8e8e8"></div>
+
+  </div>
+
+
+  <div class="swatch-labels">
+
+    <div>#1a1a1a</div>
+    <div>#e8ab2d</div>
+    <div>#890000</div>
+    <div>#314528</div>
+    <div>#e8e8e8</div>
+
+  </div>
+
+
+
+  <!-- =========================================================
+       04 — THE MARK
+  ========================================================= -->
+
+  <section class="beat">
+
+    <p class="num">04</p>
+
+    <h2 class="display">
+      The Mark
+    </h2>
+
+    <p>
+      The logo went through three iterations. The first two leaned on a
+      sunburst — flame-like rays radiating off a half-circle — sitting above a
+      stacked wordmark, but the burst competed with the type at small sizes and
+      didn't survive being shrunk onto a poster corner or a t-shirt sleeve. The
+      final version keeps a scaled-down version of that same burst as an
+      accent mark beside the wordmark, rather than as the dominant shape, so
+      "DETTY DECEMBER" carries the logo at any size.
+    </p>
+
+  </section>
+
+
+  <!-- MASONRY: LOGO ITERATIONS -->
+
+  <div class="masonry">
+
+    <div class="masonry-item">
+      <img
+        src="assets/logo-iteration-01.png"
+        alt="Logo first iteration: full sunburst above stacked wordmark"
+      >
+    </div>
+
+    <div class="masonry-item">
+      <img
+        src="assets/logo-iteration-02.png"
+        alt="Logo second iteration: refined sunburst above stacked wordmark"
+      >
+    </div>
+
+    <div class="masonry-item">
+      <img
+        src="assets/logo-iteration-03.png"
+        alt="Logo final iteration: small flame accent beside wordmark"
+      >
+    </div>
+
+  </div>
+
+
+  <p class="img-caption">
+    First iteration, second iteration, final iteration. The burst shrinks
+    from the whole idea to a supporting accent.
+  </p>
+
+
+  <!-- DELIBERATE COMPARISON — KEEP AS PAIR -->
+
+  <div class="img-pair mark-image">
+
+    <img
+      src="assets/logo-final-dark.png"
+      alt="Final logo on dark background"
+    >
+
+    <img
+      src="assets/logo-final-light.png"
+      alt="Final logo on light background"
+    >
+
+  </div>
+
+
+  <p class="img-caption">
+    The final mark, checked on both dark and light ground before it went
+    anywhere near a poster.
+  </p>
+
+
+
+  <!-- =========================================================
+       05 — TYPOGRAPHY
+  ========================================================= -->
+
+  <section class="beat">
+
+    <p class="num">05</p>
+
+    <h2 class="display">
+      Typography
+    </h2>
+
+    <p>
+      Gulfs Display carries the title role — chunky, a little irregular,
+      expressive enough to match the festival's energy without tipping into
+      novelty. Brice SemiExpanded sits underneath it as the secondary face,
+      doing the quieter job of staying legible at body-copy sizes: dates,
+      venue details, the fine print a flyer still has to communicate clearly
+      even while the headline is shouting.
+    </p>
+
+  </section>
+
+
+  <!-- DELIBERATE COMPARISON — KEEP AS PAIR -->
+
+  <div class="img-pair">
+
+    <img
+      src="assets/font-primary-gulfs.png"
+      alt="Primary typeface specimen: Gulfs Display"
+    >
+
+    <img
+      src="assets/font-secondary-brice.png"
+      alt="Secondary typeface specimen: Brice SemiExpanded"
+    >
+
+  </div>
+
+
+  <p class="img-caption">
+    Gulfs Display, primary — Brice SemiExpanded, secondary.
+  </p>
+
+
+
+  <!-- =========================================================
+       06 — TEXTURE, PATTERN & IMAGERY
+  ========================================================= -->
+
+  <section class="beat">
+
+    <p class="num">06</p>
+
+    <h2 class="display">
+      Texture, Pattern &amp; Imagery
+    </h2>
+
+    <p>
+      Flat colour and clean type risked feeling too corporate for a street
+      festival, so every surface got a layer of grain and a warm vintage
+      colour filter — a nod to the Fela Kuti era that "Detty December" as a
+      phrase already gestures toward. An Ankara-derived geometric pattern
+      became the system's texture signature, repeated across merch and
+      collateral as a recognisable fill rather than a one-off decoration.
+    </p>
+
+  </section>
+
+
+  <!-- MASONRY: TEXTURE -->
+
+  <div class="masonry">
+
+    <div class="masonry-item">
+      <img
+        src="assets/texture-grain.png"
+        alt="Grain texture overlay swatch"
+      >
+    </div>
+
+    <div class="masonry-item">
+      <img
+        src="assets/texture-retro-filter.png"
+        alt="Retro colour filter applied to a portrait"
+      >
+    </div>
+
+    <div class="masonry-item">
+      <img
+        src="assets/texture-ankara-pattern.png"
+        alt="Ankara-derived geometric pattern in the brand colours"
+      >
+    </div>
+
+  </div>
+
+
+  <p class="img-caption">
+    Grain texture, retro filter, Ankara pattern — the three finishing layers
+    applied across the system.
+  </p>
+
+
+
+  <!-- =========================================================
+       07 — CAMPAIGN FLYERS
+  ========================================================= -->
+
+  <section class="beat wide">
+
+    <p class="num">07</p>
+
+    <h2 class="display">
+      Campaign Flyers
+    </h2>
+
+    <p>
+      The main flyer sets the template every artist poster follows: the theme
+      line stacked in three colours, event details locked to the bottom edge,
+      the Ankara border running top and bottom. Individual performer posters
+      swap in a portrait and drop the stacked theme line down to a corner tag,
+      so the series reads as one campaign even as the hero image changes
+      night to night.
+    </p>
+
+  </section>
+
+
+  <div class="img-single large">
+
+    <img
+      src="assets/hero-flyer.jpg"
+      alt="Main Detty December Fest flyer with full theme line and event details"
+    >
+
+  </div>
+
+
+  <p class="img-caption">
+    Main campaign flyer — theme, venue and time all locked to the same grid.
+  </p>
+
+
+  <!-- MASONRY: ARTIST CAMPAIGN -->
+
+  <div class="masonry">
+
+    <div class="masonry-item">
+      <img
+        src="assets/poster-burnaboy.jpg"
+        alt="Artist poster: Burna Boy"
+      >
+    </div>
+
+    <div class="masonry-item">
+      <img
+        src="assets/poster-simi.jpg"
+        alt="Artist poster: Simi"
+      >
+    </div>
+
+    <div class="masonry-item">
+      <img
+        src="assets/poster-odumodublvck.jpg"
+        alt="Artist poster: Odumodublvck"
+      >
+    </div>
+
+  </div>
+
+
+  <p class="img-caption">
+    Individual artist posters — Burna Boy, Simi, Odumodublvck — carrying the
+    same system with a new hero portrait each time.
+  </p>
+
+
+
+  <!-- =========================================================
+       08 — MERCH & APPLICATIONS
+  ========================================================= -->
+
+  <section class="beat wide">
+
+    <p class="num">08</p>
+
+    <h2 class="display">
+      Merch &amp; Applications
+    </h2>
+
+    <p>
+      The real test of a flat identity is what happens once it leaves the
+      poster and has to sit on fabric. The Ankara pattern became a full
+      all-over print for one t-shirt run, while a second run uses it sparingly
+      as a sleeve and shoulder accent so the wordmark stays the focal point.
+      Tote bags carry the same split: one fully patterned, one restrained to
+      the flame mark and wordmark on natural canvas.
+    </p>
+
+  </section>
+
+
+  <!-- DELIBERATE COMPARISON — KEEP AS PAIR -->
+
+  <div class="img-pair">
+
+    <img
+      src="assets/tshirt-pattern-light.png"
+      alt="T-shirt with full Ankara-pattern print on white"
+    >
+
+    <img
+      src="assets/tshirt-pattern-dark.png"
+      alt="T-shirt with full Ankara-pattern print on black"
+    >
+
+  </div>
+
+
+  <p class="img-caption">
+    All-over Ankara pattern print, on white and black.
+  </p>
+
+
+  <div class="img-pair">
+
+    <img
+      src="assets/tshirt-logo-white.png"
+      alt="White t-shirt with wordmark and pattern sleeve accent"
+    >
+
+    <img
+      src="assets/tshirt-logo-black.png"
+      alt="Black t-shirt with wordmark and pattern sleeve accent"
+    >
+
+  </div>
+
+
+  <p class="img-caption">
+    Wordmark-led version, pattern pulled back to a sleeve and shoulder accent.
+  </p>
+
+
+  <div class="img-pair">
+
+    <img
+      src="assets/tote-bag-pattern.png"
+      alt="Tote bag with full Ankara pattern and wordmark"
+    >
+
+    <img
+      src="assets/tote-bag-light.png"
+      alt="Natural canvas tote bag with flame mark and wordmark"
+    >
+
+  </div>
+
+
+  <p class="img-caption">
+    Patterned tote, left — restrained canvas tote with the flame mark, right.
+  </p>
+
+
+
+  <!-- =========================================================
+       09 — THE SYSTEM, NOT THE POSTER
+  ========================================================= -->
+
+  <section class="gallery-section">
+
+    <p class="num">09</p>
+
+    <h2 class="display">
+      The System, Not the Poster
+    </h2>
+
+    <p>
+      None of these pieces are interchangeable, and they weren't meant to be.
+      What carries across a flyer, a t-shirt sleeve and a tote bag is the same
+      small set of decisions — the red-gold-green-black palette, the Ankara
+      pattern as a repeatable fill, Gulfs Display doing the shouting while
+      Brice SemiExpanded does the reading. A system built once, applied
+      everywhere it was needed.
+    </p>
+
+
+    <!-- MASONRY: SYSTEM GALLERY -->
+
+    <div class="masonry gallery-masonry">
+
+      <div class="masonry-item">
+        <img
+          src="assets/hero-flyer.jpg"
+          alt="Main campaign flyer"
+        >
+      </div>
+
+      <div class="masonry-item">
+        <img
+          src="assets/poster-burnaboy.jpg"
+          alt="Burna Boy artist poster"
+        >
+      </div>
+
+      <div class="masonry-item">
+        <img
+          src="assets/poster-simi.jpg"
+          alt="Simi artist poster"
+        >
+      </div>
+
+      <div class="masonry-item">
+        <img
+          src="assets/logo-final-dark.png"
+          alt="Final logo on dark ground"
+        >
+      </div>
+
+      <div class="masonry-item">
+        <img
+          src="assets/colour-final-choice.png"
+          alt="Final colour choice"
+        >
+      </div>
+
+      <div class="masonry-item">
+        <img
+          src="assets/texture-ankara-pattern.png"
+          alt="Ankara pattern"
+        >
+      </div>
+
+      <div class="masonry-item">
+        <img
+          src="assets/tshirt-pattern-dark.png"
+          alt="Patterned t-shirt on black"
+        >
+      </div>
+
+      <div class="masonry-item">
+        <img
+          src="assets/tote-bag-pattern.png"
+          alt="Patterned tote bag"
+        >
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================================
+       THANK YOU
+  ========================================================= -->
+
+  <div class="closing-line">
+
+    <p>
+      "The identity was never the flyer. It was the small set of rules that
+      let every flyer, shirt and bag still read as one night."
+    </p>
+
+  </div>
+
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+
+  <footer>
+    DETTY DECEMBER FEST — Brand Identity &amp; Graphic Design
+  </footer>
+
+
+
+  <!-- =========================================================
+       LIGHTBOX
+  ========================================================= -->
+
+  <div
+    class="lightbox"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Image gallery"
+  >
+
+    <button
+      class="lightbox-close"
+      type="button"
+      aria-label="Close image gallery"
+    >
+      ×
+    </button>
+
+
+    <button
+      class="lightbox-nav lightbox-prev"
+      type="button"
+      aria-label="Previous image"
+    >
+      ‹
+    </button>
+
+
+    <img
+      class="lightbox-image"
+      id="lightboxImage"
+      alt=""
+    >
+
+
+    <button
+      class="lightbox-nav lightbox-next"
+      type="button"
+      aria-label="Next image"
+    >
+      ›
+    </button>
+
+
+    <div class="lightbox-info">
+
+      <div
+        class="lightbox-caption"
+        id="lightboxCaption"
+      ></div>
+
+      <div id="lightboxCounter"></div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =========================================================
+       ASSET CONFIG
+  ========================================================= -->
+
+  <script>
+
+    const ASSETS = {
+      hero: "assets/hero-flyer.jpg"
+    };
+
+
+
+    /* =========================================================
+       APPLY HERO ASSET
+    ========================================================= */
+
+    const hero =
+      document.querySelector(
+        "[data-asset-background='hero']"
+      );
+
+
+    if (hero) {
+
+      hero.style.backgroundImage = `
+        linear-gradient(
+          180deg,
+          rgba(11,11,12,0.15) 0%,
+          rgba(11,11,12,0.35) 45%,
+          rgba(11,11,12,0.94) 100%
+        ),
+        url("${ASSETS.hero}")
+      `;
+
+    }
+
+
+
+    /* =========================================================
+       IMAGE LIGHTBOX
+    ========================================================= */
+
+    const images = [
+      ...document.querySelectorAll(
+        ".img-pair img, " +
+        ".img-trio img, " +
+        ".img-four img, " +
+        ".img-single img, " +
+        ".masonry img, " +
+        ".gallery-grid img"
+      )
+    ];
+
+
+    const unique = [];
+    const seen = new Set();
+
+
+    images.forEach((img) => {
+
+      if (!seen.has(img.src)) {
+
+        seen.add(img.src);
+        unique.push(img);
+
+      }
+
+
+      img.setAttribute(
+        "tabindex",
+        "0"
+      );
+
+
+      img.setAttribute(
+        "role",
+        "button"
+      );
+
+
+      img.setAttribute(
+        "aria-label",
+        `Open image: ${img.alt || "Image"}`
+      );
+
+    });
+
+
+
+    const lightbox =
+      document.getElementById(
+        "lightbox"
+      );
+
+
+    const lightboxImage =
+      document.getElementById(
+        "lightboxImage"
+      );
+
+
+    const caption =
+      document.getElementById(
+        "lightboxCaption"
+      );
+
+
+    const counter =
+      document.getElementById(
+        "lightboxCounter"
+      );
+
+
+    const closeButton =
+      lightbox.querySelector(
+        ".lightbox-close"
+      );
+
+
+    const prevButton =
+      lightbox.querySelector(
+        ".lightbox-prev"
+      );
+
+
+    const nextButton =
+      lightbox.querySelector(
+        ".lightbox-next"
+      );
+
+
+
+    let current = 0;
+    let lastFocused = null;
+
+
+
+    function show(index) {
+
+      if (!unique.length) return;
+
+
+      current =
+        (index + unique.length) %
+        unique.length;
+
+
+      const source =
+        unique[current];
+
+
+      lightboxImage.src =
+        source.src;
+
+
+      lightboxImage.alt =
+        source.alt || "Image";
+
+
+      caption.textContent =
+        source.alt || "";
+
+
+      counter.textContent =
+        `${current + 1} / ${unique.length}`;
+
+    }
+
+
+
+    function open(index) {
+
+      lastFocused =
+        document.activeElement;
+
+
+      show(index);
+
+
+      lightbox.classList.add(
+        "is-open"
+      );
+
+
+      document.body.style.overflow =
+        "hidden";
+
+
+      closeButton.focus();
+
+    }
+
+
+
+    function close() {
+
+      lightbox.classList.remove(
+        "is-open"
+      );
+
+
+      document.body.style.overflow =
+        "";
+
+
+      lightboxImage.removeAttribute(
+        "src"
+      );
+
+
+      if (lastFocused) {
+        lastFocused.focus();
+      }
+
+    }
+
+
+
+    function next() {
+      show(current + 1);
+    }
+
+
+
+    function prev() {
+      show(current - 1);
+    }
+
+
+
+    images.forEach((img) => {
+
+      const index =
+        unique.indexOf(img);
+
+
+      img.addEventListener(
+        "click",
+        () => open(index)
+      );
+
+
+      img.addEventListener(
+        "keydown",
+        (event) => {
+
+          if (
+            event.key === "Enter" ||
+            event.key === " "
+          ) {
+
+            event.preventDefault();
+
+            open(index);
+
+          }
+
+        }
+      );
+
+    });
+
+
+
+    closeButton.addEventListener(
+      "click",
+      close
+    );
+
+
+
+    nextButton.addEventListener(
+      "click",
+      (event) => {
+
+        event.stopPropagation();
+
+        next();
+
+      }
+    );
+
+
+
+    prevButton.addEventListener(
+      "click",
+      (event) => {
+
+        event.stopPropagation();
+
+        prev();
+
+      }
+    );
+
+
+
+    lightbox.addEventListener(
+      "click",
+      (event) => {
+
+        if (
+          event.target === lightbox
+        ) {
+
+          close();
+
+        }
+
+      }
+    );
+
+
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          !lightbox.classList.contains(
+            "is-open"
+          )
+        ) {
+          return;
+        }
+
+
+        if (
+          event.key === "Escape"
+        ) {
+          close();
+        }
+
+
+        if (
+          event.key === "ArrowRight"
+        ) {
+          next();
+        }
+
+
+        if (
+          event.key === "ArrowLeft"
+        ) {
+          prev();
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>

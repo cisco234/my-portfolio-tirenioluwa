@@ -1,0 +1,2841 @@
+<!DOCTYPE html> 
+   <html lang="en"> 
+  <head> 
+   <meta charset="utf-8"> <title>TEDxUNILAG 2.0 — Case Study</title> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+   <link href="https://fonts.googleapis.com" rel="preconnect"> 
+   <link href="https://fonts.gstatic.com" rel="preconnect"> 
+   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #0b0b0c;
+      --red: #c21807;
+      --white: #f7f5f2;
+      --grey: #9a9a96;
+      --muted: #d8d6d2;
+      --line: rgba(247, 245, 242, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Satoshi', 'Inter', Arial, sans-serif;
+      font-weight: 400;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+    
+    .display {
+      font-family: 'Satoshi', 'Archivo Black', 'Inter', sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -0.025em;
+    }
+    
+    
+    /* =========================
+       HERO
+    ========================= */
+    
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background-size: cover;
+      background-position: center 40%;
+      padding: 8vw 6vw 6vw;
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(11, 11, 12, 0.15) 0%,
+        rgba(11, 11, 12, 0.35) 45%,
+        rgba(11, 11, 12, 0.94) 100%
+      );
+      pointer-events: none;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+    }
+    
+    .hero-tag {
+      color: var(--grey);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.25rem;
+    }
+    
+    .hero .tagline {
+      font-style: italic;
+      color: var(--grey);
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      margin-top: 1rem;
+      max-width: 40ch;
+    }
+    
+    .meta-row {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.85rem;
+      max-width: 1000px;
+    }
+    
+    .meta-row div {
+      min-width: 150px;
+    }
+    
+    .meta-row .label {
+      display: block;
+      color: var(--grey);
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.7rem;
+    }
+    
+    
+    /* =========================
+       TEXT SECTIONS
+    ========================= */
+    
+    section.beat {
+      padding: 8rem 6vw;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    
+    section.beat.wide {
+      max-width: 1100px;
+    }
+    
+    section.beat .num {
+      color: var(--red);
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    section.beat h2.display {
+      font-size: clamp(2rem, 5vw, 4rem);
+      margin-bottom: 2rem;
+      color: var(--white);
+    }
+    
+    section.beat p {
+      font-size: clamp(1.02rem, 1.5vw, 1.15rem);
+      color: var(--muted);
+      max-width: 68ch;
+      margin-bottom: 1.35rem;
+    }
+    
+    section.beat p:last-child {
+      margin-bottom: 0;
+    }
+    
+    .emphasis {
+      color: var(--white);
+      font-weight: 500;
+    }
+    
+    .section-intro {
+      font-size: clamp(1.15rem, 2vw, 1.4rem);
+      color: var(--white);
+    }
+    
+    
+    /* =========================
+       IMAGE SYSTEM
+    ========================= */
+    
+    .img-single {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 6vw 2rem;
+    }
+    
+    .img-single.large {
+      max-width: 1200px;
+    }
+    
+    .img-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 6vw 2rem;
+    }
+    
+    .img-trio {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 6vw 2rem;
+    }
+    
+    .img-four {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 6vw 2rem;
+    }
+    
+    .img-pair img,
+    .img-trio img,
+    .img-four img,
+    .img-single img {
+      width: 100%;
+      display: block;
+      border: 1px solid var(--line);
+      cursor: zoom-in;
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+    
+    .img-pair img:hover,
+    .img-trio img:hover,
+    .img-four img:hover,
+    .img-single img:hover {
+      opacity: 0.88;
+    }
+    
+    .img-caption {
+      text-align: center;
+      color: var(--grey);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      max-width: 680px;
+      margin: 0 auto 4rem;
+      padding: 0 6vw;
+    }
+    
+    .mark-image img {
+      background: #000;
+      object-fit: contain;
+    }
+    
+    
+    /* =========================
+       QUOTE GRID
+    ========================= */
+    
+    .quote-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 6vw 2rem;
+    }
+    
+    .quote-grid img {
+      width: 100%;
+      display: block;
+      border: 1px solid var(--line);
+      cursor: zoom-in;
+      transition: opacity 180ms ease;
+    }
+    
+    .quote-grid img:hover {
+      opacity: 0.88;
+    }
+    
+    
+    /* =========================
+       FULL BLEED DIVIDERS
+    ========================= */
+    
+    .divider {
+      width: 88%;
+      height: 1px;
+      background: var(--line);
+      margin: 2rem auto;
+    }
+    
+    .red-rule {
+      width: 40px;
+      height: 3px;
+      background: var(--red);
+      margin: 2rem 0;
+    }
+    
+    
+    /* =========================
+       GALLERY
+    ========================= */
+    
+    .gallery-section {
+      padding: 8rem 6vw 4rem;
+      text-align: center;
+    }
+    
+    .gallery-section .num {
+      color: var(--red);
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .gallery-section h2.display {
+      font-size: clamp(2rem, 5vw, 4rem);
+      margin-bottom: 1.5rem;
+    }
+    
+    .gallery-section > p {
+      color: var(--muted);
+      max-width: 68ch;
+      margin: 0 auto 4rem;
+      font-size: clamp(1.02rem, 1.5vw, 1.15rem);
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.9rem;
+      max-width: 1250px;
+      margin: 0 auto;
+    }
+    
+    .gallery-grid img {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      object-fit: cover;
+      display: block;
+      border: 1px solid var(--line);
+      cursor: zoom-in;
+      transition: opacity 180ms ease;
+    }
+    
+    .gallery-grid img:hover {
+      opacity: 0.88;
+    }
+    
+    .gallery-grid .wide {
+      grid-column: span 2;
+    }
+    
+    
+    /* =========================
+       THANK YOU
+    ========================= */
+    
+    .closing-line {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 6vw 8rem;
+    }
+    
+    .closing-line p {
+      color: var(--grey);
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+    }
+    
+    
+    /* =========================
+       FOOTER
+    ========================= */
+    
+    footer {
+      text-align: center;
+      padding: 4rem 6vw 6rem;
+      color: var(--grey);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--line);
+    }
+    
+    
+    /* =========================
+       LIGHTBOX
+    ========================= */
+    
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 4.5rem 5rem;
+      background: rgba(0, 0, 0, 0.95);
+    }
+    
+    .lightbox.is-open {
+      display: flex;
+    }
+    
+    .lightbox-image {
+      max-width: min(92vw, 1500px);
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+      user-select: none;
+    }
+    
+    .lightbox-close,
+    .lightbox-nav {
+      position: absolute;
+      border: 0;
+      background: rgba(247, 245, 242, 0.1);
+      color: var(--white);
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font: inherit;
+      transition: background 150ms ease;
+    }
+    
+    .lightbox-close:hover,
+    .lightbox-nav:hover {
+      background: rgba(247, 245, 242, 0.2);
+    }
+    
+    .lightbox-close {
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .lightbox-prev {
+      left: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+    }
+    
+    .lightbox-next {
+      right: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+    }
+    
+    .lightbox-info {
+      position: absolute;
+      left: 50%;
+      bottom: 1.25rem;
+      transform: translateX(-50%);
+      max-width: 80vw;
+      text-align: center;
+      color: var(--grey);
+      font-size: 0.8rem;
+    }
+    
+    .lightbox-caption {
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+    
+    
+    /* =========================
+       RESPONSIVE
+    ========================= */
+    
+    @media (max-width: 800px) {
+    
+      .img-trio {
+        grid-template-columns: 1fr;
+      }
+    
+      .img-four {
+        grid-template-columns: 1fr;
+      }
+    
+      .quote-grid {
+        grid-template-columns: 1fr;
+      }
+    
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    
+      .gallery-grid .wide {
+        grid-column: span 2;
+      }
+    
+      section.beat {
+        padding: 6rem 6vw;
+      }
+    }
+    
+    @media (max-width: 640px) {
+    
+      .hero {
+        min-height: 88vh;
+        padding: 7rem 6vw 3.5rem;
+      }
+    
+      .meta-row {
+        gap: 1.5rem;
+      }
+    
+      .img-pair {
+        grid-template-columns: 1fr;
+      }
+    
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    
+      .gallery-grid .wide {
+        grid-column: span 1;
+      }
+    
+      .gallery-grid img {
+        min-height: auto;
+      }
+    
+      section.beat {
+        padding: 5rem 6vw;
+      }
+    
+      .lightbox {
+        padding: 4rem 1rem;
+      }
+    
+      .lightbox-image {
+        max-width: 96vw;
+        max-height: 82vh;
+      }
+    
+      .lightbox-close {
+        top: 0.75rem;
+        right: 0.75rem;
+      }
+    
+      .lightbox-prev {
+        left: 0.5rem;
+      }
+    
+      .lightbox-next {
+        right: 0.5rem;
+      }
+    }
+    
+ /* =========================
+   SECTION 11 — SYSTEM BEHIND THE SYSTEM
+   Add after the existing CSS
+========================= */
+
+.ops-section {
+  max-width: 1200px;
+}
+
+.ops-kicker {
+  color: var(--red);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.ops-lead {
+  max-width: 920px;
+  margin-bottom: 7rem;
+}
+
+.ops-lead h2.display {
+  font-size: clamp(3rem, 7vw, 6rem);
+  max-width: 850px;
+  margin-bottom: 2.5rem;
+}
+
+.ops-lead p {
+  max-width: 70ch;
+}
+
+/* =========================
+   PROCESS
+========================= */
+
+.ops-process {
+  border-top: 1px solid var(--line);
+}
+
+.ops-process-heading {
+  padding: 3rem 0 4rem;
+  max-width: 720px;
+}
+
+.ops-process-heading h3,
+.ops-subsection-heading h3,
+.ops-outcomes-heading h3 {
+  color: var(--white);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+}
+
+.ops-process-heading p,
+.ops-subsection-heading p,
+.ops-outcomes-heading p {
+  color: var(--muted);
+  max-width: 62ch;
+}
+
+/* Four-column process row:
+   number | title | copy
+*/
+
+.ops-process-row {
+  display: grid;
+  grid-template-columns: 70px 180px minmax(0, 1fr);
+  gap: 2rem;
+  padding: 2.25rem 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+
+.ops-process-number {
+  color: var(--red);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  padding-top: 0.2rem;
+}
+
+.ops-process-title {
+  color: var(--white);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.ops-process-copy {
+  color: var(--muted);
+  max-width: 62ch;
+  margin: 0 !important;
+}
+
+/* =========================
+   INFRASTRUCTURE
+========================= */
+
+.ops-subsection {
+  margin-top: 8rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--line);
+}
+
+.ops-subsection-heading {
+  max-width: 720px;
+  margin-bottom: 4rem;
+}
+
+.ops-image-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 0;
+}
+
+.ops-image-single {
+  max-width: 900px;
+  margin: 4rem auto 0;
+}
+
+.ops-image-frame {
+  background: #000;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.ops-image-frame img {
+  width: 100%;
+  display: block;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.ops-image-frame img:hover {
+  opacity: 0.88;
+}
+
+.ops-image-caption {
+  color: var(--grey);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  margin-top: 0.7rem;
+}
+
+/* =========================
+   PRESSURE TEST
+========================= */
+
+.pressure-test {
+  margin-top: 9rem;
+  padding: 5rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.pressure-intro {
+  max-width: 760px;
+  margin-bottom: 5rem;
+}
+
+.pressure-intro h3 {
+  color: var(--white);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 0.98;
+  margin-bottom: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.pressure-intro p {
+  max-width: 68ch;
+}
+
+/* Three-column timeline:
+   time | event | description
+*/
+
+.pressure-timeline {
+  border-top: 1px solid var(--line);
+}
+
+.pressure-step {
+  display: grid;
+  grid-template-columns: 110px 180px minmax(0, 1fr);
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+
+.pressure-time {
+  color: var(--red);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding-top: 0.15rem;
+}
+
+.pressure-title {
+  color: var(--white);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.pressure-step p {
+  color: var(--muted);
+  max-width: 58ch;
+  margin: 0 !important;
+}
+
+.stress-conclusion {
+  color: var(--white) !important;
+  font-size: clamp(1.2rem, 2vw, 1.5rem) !important;
+  max-width: 680px !important;
+  margin: 4rem 0 0 !important;
+}
+
+/* =========================
+   OUTCOMES
+========================= */
+
+.ops-outcomes {
+  margin-top: 9rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--line);
+}
+
+.ops-outcomes-heading {
+  max-width: 720px;
+  margin-bottom: 4rem;
+}
+
+.ops-outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.ops-outcome {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.ops-outcome-number {
+  color: var(--white);
+  font-family: 'Satoshi', 'Archivo Black', 'Inter', sans-serif;
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.25rem;
+}
+
+.ops-outcome-label {
+  color: var(--muted);
+  max-width: 28ch;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* =========================
+   PRINCIPLE
+========================= */
+
+.ops-principle {
+  margin-top: 10rem;
+  padding: 5rem 0 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.ops-principle-kicker {
+  color: var(--red);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.ops-principle h3 {
+  color: var(--white);
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  margin-bottom: 2.5rem;
+  font-weight: 900;
+}
+
+.ops-principle p {
+  color: var(--muted);
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  max-width: 42ch;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+  .ops-lead {
+    margin-bottom: 5rem;
+  }
+
+  .ops-process-row {
+    grid-template-columns: 55px 150px minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .ops-image-pair {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .pressure-step {
+    grid-template-columns: 90px 140px minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .ops-outcome-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ops-principle {
+    margin-top: 7rem;
+  }
+}
+
+@media (max-width: 640px) {
+
+  .ops-lead h2.display {
+    font-size: clamp(2.8rem, 13vw, 4.5rem);
+  }
+
+  .ops-process-heading {
+    padding: 2.5rem 0 3rem;
+  }
+
+  .ops-process-row {
+    grid-template-columns: 45px 1fr;
+    gap: 0.75rem 1rem;
+  }
+
+  .ops-process-copy {
+    grid-column: 2;
+    margin-top: 0.5rem !important;
+  }
+
+  .ops-subsection,
+  .pressure-test,
+  .ops-outcomes {
+    margin-top: 6rem;
+  }
+
+  .ops-subsection {
+    padding-top: 3rem;
+  }
+
+  .pressure-test {
+    padding-top: 3rem;
+  }
+
+  .pressure-step {
+    grid-template-columns: 75px 1fr;
+    gap: 0.75rem 1rem;
+  }
+
+  .pressure-title {
+    font-size: 1rem;
+  }
+
+  .pressure-step p {
+    grid-column: 2;
+  }
+
+  .ops-outcome-number {
+    font-size: clamp(3.5rem, 16vw, 5rem);
+  }
+
+  .ops-principle {
+    padding-top: 3.5rem;
+  }
+
+  .ops-principle h3 {
+    font-size: clamp(3rem, 14vw, 5rem);
+  }
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
+
+  <header
+    class="hero"
+    id="top"
+    data-asset-background="hero"
+  >
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+      <p class="hero-tag">
+        TEDxUNILAG 2.0 — Main Campaign Visual
+      </p>
+
+      <p class="tagline">
+        A visual system for an event about scale within structure.
+      </p>
+
+      <div class="meta-row">
+
+        <div>
+          <span class="label">Role</span>
+          Creative Direction, Design &amp; Team Leadership
+        </div>
+
+        <div>
+          <span class="label">Scope</span>
+          Identity, campaign system, team operations &amp; delivery
+        </div>
+
+        <div>
+          <span class="label">Status</span>
+          Launched
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================================================
+       01 — THE BRIEF
+  ========================================================= -->
+
+  <section class="beat">
+
+    <p class="num">01</p>
+
+    <h2 class="display">
+      The Brief
+    </h2>
+
+    <p>
+      TEDxUNILAG is rooted in the intellectual and creative pulse of
+      the University of Lagos — ideas shaped by context, sharpened by
+      limitation, and powerful precisely because they emerge from real,
+      lived conditions. The 2.0 edition needed a visual identity that
+      could carry that premise across everything the event would touch:
+      main campaign graphics, recruitment calls, speaker communications,
+      ticketing, countdowns, and the closing message, without fragmenting
+      into a pile of unrelated posters that happened to share a logo.
+    </p>
+
+    <p class="section-intro">
+      The theme was "Can't Hold Us."
+    </p>
+
+  </section>
+
+
+  <!-- =========================================================
+       02 — REJECTING THE OBVIOUS
+  ========================================================= -->
+
+  <section class="beat">
+
+    <p class="num">02</p>
+
+    <h2 class="display">
+      Rejecting the Obvious
+    </h2>
+
+    <p>
+      The first pass at that theme goes where anyone would go:
+      chains, cages, breaking through barriers, escape. It's not wrong —
+      it's just the first thing anyone would draw, which means it says
+      nothing specific about this event.
+    </p>
+
+    <p>
+      The distinction that mattered: this is not about escape or defiance.
+      It's about scale within structure — about thinkers and builders who
+      expand meaning and impact exactly where they are, filling every
+      available space with intention rather than breaking out of it.
+      The question changed from "how do we show something escaping" to
+      "how do we show something that keeps expanding despite what's
+      supposed to contain it."
+    </p>
+
+  </section>
+
+
+  <!-- =========================================================
+       03 — THE MARK ITSELF
+  ========================================================= -->
+
+  <section class="beat">
+
+    <p class="num">03</p>
+
+    <h2 class="display">
+      The Mark Itself
+    </h2>
+
+    <p>
+      The mark translates that idea into structure. It is built from
+      modular blocks arranged in a stepped formation, representing
+      intentional action and the cumulative nature of growth. Nothing is
+      added for decoration; the form is deliberately restrained, allowing
+      the idea of progress to live inside the construction itself.
+    </p>
+
+    <p>
+      The negative space between the blocks creates an upward-pointing
+      arrow. It is never drawn explicitly — it emerges from the
+      arrangement, suggesting that growth can emerge naturally from
+      intentionality and process. A single red block interrupts the
+      neutral structure, marking the point where intention becomes visible.
+      Used sparingly, the red signals moments of clarity and action rather
+      than noise. The result is a mark about measured momentum: progress
+      that does not need to break the structure in order to move through it.
+    </p>
+
+  </section>
+
+  <div class="img-single mark-image">
+
+    <img
+      src="assets/the-mark.png"
+      alt="TEDxUNILAG 2.0 logo mark: stepped blocks with one red interruption"
+    >
+
+  </div>
+
+  <p class="img-caption">
+    The mark, bottom right: stepped blocks, a hidden arrow, one red interruption.
+  </p>
+
+
+  <!-- =========================================================
+       04 — THE GOVERNING RULE
+  ========================================================= -->
+
+  <section class="beat">
+
+    <p class="num">04</p>
+
+    <h2 class="display">
+      The Governing Rule
+    </h2>
+
+    <p>
+      Once that distinction was set, one principle ran through everything
+      that followed: <span class="emphasis">make the metaphor physical.</span>
+      Instead of placing a symbol beside the message, the message had to
+      live inside an actual environment — the metaphor becomes the room
+      the idea stands in, not an illustration next to it.
+    </p>
+
+    <p>
+      That's the logic behind the recruitment campaigns. Each "call for"
+      poster is staged inside the literal physical space its audience
+      already understands.
+    </p>
+
+  </section>
+
+  <div class="img-pair">
+
+    <img
+      src="assets/image-02-596173cdef25.jpg"
+      alt="Call for Performers poster, staged inside a stage curtain"
+    >
+
+    <img
+      src="assets/image-03-d3dcd3f390c6.jpg"
+      alt="Call for Vendors poster, staged inside a market awning"
+    >
+
+  </div>
+
+  <p class="img-caption">
+    A stage curtain for performers, a market awning for vendors.
+    The call and the space it's made for are the same picture.
+  </p>
+
+  <div class="img-pair">
+
+    <img
+      src="assets/image-04-6f823e75253c.jpg"
+      alt="Call for Student Speakers, megaphone on a red pedestal"
+    >
+
+    <img
+      src="assets/Call for founder.jpg"
+      alt="Call for Founders, model rocket on a red pedestal"
+    >
+
+  </div>
+
+  <p class="img-caption">
+    Two more calls, one device: a megaphone for the students who need
+    a platform, a rocket for the founders who need liftoff. Same red
+    pedestal, same logic, different object doing the specific work each
+    audience calls for.
+  </p>
+
+
+  <!-- =========================================================
+       05 — SPEAKERS AS DISRUPTORS
+  ========================================================= -->
+
+  <section class="beat">
+
+    <p class="num">05</p>
+
+    <h2 class="display">
+      Speakers as Disruptors
+    </h2>
+
+    <p>
+      The speaker campaign had to avoid the default of conference
+      photography — a person smiling into a microphone. The direction
+      that held was framing speakers as disruptors: people who introduce
+      friction into how something is understood, not attendees posing
+      for an event.
+    </p>
+
+    <p>
+      That's why the portraits are stark, direct, mostly monochrome,
+      with the subject looking straight into the lens rather than
+      performing for it. The system's red/black/white contrast still
+      governs the page, but the register shifts — less campaign urgency,
+      more individual presence.
+    </p>
+
+  </section>
+
+  <div class="img-trio">
+
+    <img
+      src="assets/image-05-f4a88f4177d1.jpg"
+      alt="Speaker announcement, Michael Ukaegbu"
+    >
+
+    <img
+      src="assets/image-06-8373f46b8481.jpg"
+      alt="Speaker announcement, Laju Iren"
+    >
+
+    <img
+      src="assets/image-07-78efdd6b50be.jpg"
+      alt="Speaker announcement, Sheriff Muhammad"
+    >
+
+  </div>
+
+  <p class="img-caption">
+    Speaker announcement, Michael Ukaegbu · Speaker announcement, Laju Iren ·
+    Speaker announcement, Sheriff Muhammad.
+  </p>
+
+  <div class="img-single">
+
+    <img
+      src="assets/image-01-18b2805f4da0.jpg"
+      alt="TEDxUNILAG speakers roster with the full logo mark visible"
+    >
+
+  </div>
+
+  <p class="img-caption">
+    TEDxUNILAG speakers roster with the full logo mark visible.
+  </p>
+
+
+  <!-- =========================================================
+       06 — THE QUOTES
+  ========================================================= -->
+
+  <section class="beat">
+
+    <p class="num">06</p>
+
+    <h2 class="display">
+      The Quotes
+    </h2>
+
+    <p>
+      The speaker portraits introduce who is talking. The quote series
+      exists to distribute what they're actually saying — one extractable
+      line per speaker, built to be shared on its own long before the event
+      happens, with no context required beyond the card itself.
+    </p>
+
+    <p>
+      Each card repeats the same three fixed elements — the giant quotation
+      mark, the vertical "Can't Hold Us" wordmark running down the edge,
+      the speaker's name and title anchored at the bottom — and changes
+      only the line itself. That repetition is deliberate: a quote card
+      should be recognizable as part of the series within half a second,
+      before anyone reads a word of the actual quote.
+    </p>
+
+  </section>
+
+  <div class="quote-grid">
+
+    <img
+      src="assets/QUOTE-ALADEKOMO.jpg"
+      alt="Speaker quote, Tomiwa Aladekomo"
+    >
+
+    <img
+      src="assets/QUOTE-ASUNOGIE.png"
+      alt="Speaker quote, Asunogie Nimat"
+    >
+
+    <img
+      src="assets/QUOTE-MICHAEL-PRISCILLA.png"
+      alt="Speaker quote, Michael and Priscilla Ukaegbu"
+    >
+
+    <img
+      src="assets/QUOTE-LAJU.png"
+      alt="Speaker quote, Laju Iren"
+    >
+
+    <img
+      src="assets/QUOTE-AMAKA.png"
+      alt="Speaker quote, Chef Amaka"
+    >
+
+    <img
+      src="assets/QUOTE-SHERIFF.png"
+      alt="Speaker quote, Moh Sheriff"
+    >
+
+  </div>
+
+  <p class="img-caption">
+    Speaker quote, Tomiwa Aladekomo · Speaker quote, Asunogie Nimat ·
+    Speaker quote, Michael and Priscilla Ukaegbu · Speaker quote, Laju Iren ·
+    Speaker quote, Chef Amaka · Speaker quote, Moh Sheriff.
+  </p>
+
+
+  <!-- =========================================================
+       07 — THE VOGUER SPOTLIGHT
+  ========================================================= -->
+
+  <section class="beat">
+
+    <p class="num">07</p>
+
+    <h2 class="display">
+      The Voguer Spotlight
+    </h2>
+
+    <p>
+      Not everyone connected to the event is a speaker or a vendor or a
+      performer. Some people are honoured simply because who they are
+      already embodies the theme — and that recognition needed to feel
+      like an honour, not another campaign asset.
+    </p>
+
+    <p>
+      So the Voguer spotlight deliberately steps outside the system built
+      everywhere else. Instead of the bold condensed sans and duotone
+      photography that governs the rest of the identity, it borrows the
+      language of an editorial magazine cover — a serif masthead, a
+      full-bleed portrait, italic pull-lines. The break in consistency is
+      the point: this is the one format built to feel like an honour
+      conferred, not a message broadcast. The supporting bio card underneath
+      then returns to the house system, so the recognition still lives
+      inside the same world as everything else.
+    </p>
+
+  </section>
+
+  <div class="img-pair">
+
+    <img
+      src="assets/VOGUER-COVER.jpg"
+      alt="Voguer spotlight cover, Agomeze Saint Chukwuemeka"
+    >
+
+    <img
+      src="assets/VOGUER-BIO.jpg"
+      alt="Voguer bio card, Agomeze Saint Chukwuemeka"
+    >
+
+  </div>
+
+  <p class="img-caption">
+    Voguer spotlight cover and supporting bio card, Agomeze Saint Chukwuemeka.
+  </p>
+
+
+  <!-- =========================================================
+       08 — THE PEOPLE BEHIND IT
+  ========================================================= -->
+
+  <section class="beat">
+
+    <p class="num">08</p>
+
+    <h2 class="display">
+      The People Behind It
+    </h2>
+
+    <p>
+      The system wasn't reserved for outward-facing recruitment and
+      speaker material — it extended inward, to the organizing team itself.
+      The "Meet the Board" series uses a different device: each portrait
+      sits inside a mocked-up social post frame, literalizing the medium
+      the content is actually built for rather than pretending it's a
+      printed poster.
+    </p>
+
+  </section>
+
+  <div class="img-pair">
+
+    <img
+      src="assets/image-09-0b338428fd0b.jpg"
+      alt="Board member post, Jescil Richard"
+    >
+
+    <img
+      src="assets/image-10-53661a4dcb2d.jpg"
+      alt="Board member post, Oluwaseyi Faronbi"
+    >
+
+  </div>
+
+  <p class="img-caption">
+    Board member post, Jescil Richard · Oluwaseyi Faronbi.
+  </p>
+
+
+  <!-- =========================================================
+       09 — MOMENTUM, THEN URGENCY
+  ========================================================= -->
+
+  <section class="beat">
+
+    <p class="num">09</p>
+
+    <h2 class="display">
+      Momentum, Then Urgency
+    </h2>
+
+    <p>
+      The countdown series carried the visual grammar established earlier
+      into the week before the event: a dominant numeral, a single object
+      doing the work of specificity — a megaphone, an alarm clock — against
+      the same restrained palette. No new idea was needed for every post;
+      the system did the repetition, the object did the specificity.
+    </p>
+
+    <p>
+      Ticketing needed its own sub-system rather than a single design reused
+      with new numbers, since three tiers had to read as three genuinely
+      different offers. The Builder's Pass, VIP Inner Circle, and First Wave
+      each got a distinct type treatment and price presentation — but all
+      three keep the same perforated stub edge and diagonal composition,
+      so the tier changes without the object stopping being recognisably
+      a ticket.
+    </p>
+
+    <p>
+      As the date closed in, the tone sharpened on purpose. "Last Chance"
+      flips the palette to a white ground with black and red type — a
+      genuine register change, not the same poster with different words.
+      "It's Today" then strips everything back to a flat red-and-grey
+      colour block with no image at all: by the day of the event, there was
+      nothing left to explain, only the fact of the date itself.
+    </p>
+
+  </section>
+
+  <div class="img-pair">
+
+    <img
+      src="assets/image-11-d8338355cd48.jpg"
+      alt="Countdown poster, 14 days to go"
+    >
+
+    <img
+      src="assets/image-12-ccc9582a61ab.jpg"
+      alt="Countdown poster, 13 days to go"
+    >
+
+  </div>
+
+  <p class="img-caption">
+    Countdown poster, 14 days to go · Countdown poster, 13 days to go.
+  </p>
+
+  <div class="img-pair">
+
+    <img
+      src="assets/image-13-8a8d868c638f.jpg"
+      alt="Builder's Pass ticket design"
+    >
+
+    <img
+      src="assets/image-14-5048ad9882d3.jpg"
+      alt="Last Chance urgency poster"
+    >
+
+  </div>
+
+  <p class="img-caption">
+    Builder's Pass ticket design · Last Chance urgency poster.
+  </p>
+
+  <div class="img-single">
+
+    <img
+      src="assets/image-15-f32f35906176.jpg"
+      alt="It's Today poster"
+    >
+
+  </div>
+
+  <p class="img-caption">
+    The arrival moment, stripped back to a flat red-and-grey colour block.
+  </p>
+
+
+  <!-- =========================================================
+       10 — THE SYSTEM, NOT THE POSTER
+  ========================================================= -->
+
+  <section class="gallery-section">
+
+    <p class="num">10</p>
+
+    <h2 class="display">
+      The System, Not the Poster
+    </h2>
+
+    <p>
+      None of these pieces look identical, and they weren't meant to.
+      What holds a stage curtain, a market awning, a megaphone, a ticket
+      stub and a black-and-white portrait together is the same creative
+      logic — concept before decoration, typography treated as a physical
+      object rather than flat information, and every image built to answer
+      one question: not what looks good, but how the idea can exist inside
+      the frame.
+    </p>
+
+    <div class="gallery-grid">
+
+      <img
+        class="wide"
+        src="assets/image-02-596173cdef25.jpg"
+        alt="Call for Performers campaign visual"
+      >
+
+      <img
+        src="assets/image-03-d3dcd3f390c6.jpg"
+        alt="Call for Vendors campaign visual"
+      >
+
+      <img
+        src="assets/image-04-6f823e75253c.jpg"
+        alt="Call for Student Speakers campaign visual"
+      >
+
+      <img
+        src="assets/Call for founder.jpg"
+        alt="Call for Founders campaign visual"
+      >
+
+      <img
+        src="assets/image-05-f4a88f4177d1.jpg"
+        alt="Michael Ukaegbu speaker announcement"
+      >
+
+      <img
+        src="assets/QUOTE-ALADEKOMO.jpg"
+        alt="Tomiwa Aladekomo speaker quote"
+      >
+
+      <img
+        src="assets/image-13-8a8d868c638f.jpg"
+        alt="Builder's Pass ticket"
+      >
+
+      <img
+        class="wide"
+        src="assets/image-01-18b2805f4da0.jpg"
+        alt="TEDxUNILAG speakers roster with logo mark"
+      >
+
+      <img
+        src="assets/image-11-d8338355cd48.jpg"
+        alt="14 days to go countdown"
+      >
+
+      <img
+        src="assets/image-12-ccc9582a61ab.jpg"
+        alt="13 days to go countdown"
+      >
+
+    </div>
+
+  </section>
+
+
+  </section>
+
+
+<!-- =========================================================
+     11 — THE SYSTEM BEHIND THE SYSTEM
+========================================================= -->
+
+<section class="beat ops-section">
+
+  <div class="ops-kicker">
+    11 — The System Behind The System
+  </div>
+
+
+  <!-- INTRO -->
+
+  <div class="ops-lead">
+
+    <h2 class="display">
+      DESIGN WAS<br>
+      ONLY HALF<br>
+      THE JOB.
+    </h2>
+
+    <p>
+      The visual system was only half the job.
+      I also had to build the team and operating system that would
+      keep producing it.
+    </p>
+
+    <p>
+      I led a six-person design team and built the structure around
+      them: how we selected people, how work was assigned, how ideas
+      were developed, how resources were shared, and how we prepared
+      for requests that had not arrived yet.
+    </p>
+
+  </div>
+
+
+  <!-- =========================================================
+       SYSTEM MAP
+  ========================================================= -->
+
+  <div class="ops-process">
+
+    <div class="ops-process-heading">
+
+      <h3>
+        The system<br>
+        had four jobs.
+      </h3>
+
+      <p>
+        Instead of trying to control every design, I focused on
+        creating the conditions around the designers so they could
+        make good work quickly and independently.
+      </p>
+
+    </div>
+
+
+    <div class="ops-process-row">
+
+      <div class="ops-process-number">
+        01
+      </div>
+
+      <div class="ops-process-title">
+        Select
+      </div>
+
+      <p class="ops-process-copy">
+        Technical ability had already been evaluated before the
+        interview. What mattered next was whether someone could
+        function inside a real team.
+
+        I narrowed the selection down to three requirements:
+        excellent work, availability and energy, and effective
+        communication.
+      </p>
+
+    </div>
+
+
+    <div class="ops-process-row">
+
+      <div class="ops-process-number">
+        02
+      </div>
+
+      <div class="ops-process-title">
+        Equip
+      </div>
+
+      <p class="ops-process-copy">
+        Designers shouldn't have to solve the same problems from
+        scratch every time.
+
+        I built a shared working environment around the recurring
+        points where people lost time: finding references,
+        developing concepts, deciding where to start, building
+        layouts and locating resources.
+      </p>
+
+    </div>
+
+
+    <div class="ops-process-row">
+
+      <div class="ops-process-number">
+        03
+      </div>
+
+      <div class="ops-process-title">
+        Anticipate
+      </div>
+
+      <p class="ops-process-copy">
+        Event design rarely follows the original plan perfectly.
+
+        I studied patterns in major events and design systems
+        during the period to anticipate the kinds of requests
+        we would encounter: rejected concepts, impromptu designs,
+        last-minute communication and ideas that suddenly became
+        priorities.
+      </p>
+
+    </div>
+
+
+    <div class="ops-process-row">
+
+      <div class="ops-process-number">
+        04
+      </div>
+
+      <div class="ops-process-title">
+        Accelerate
+      </div>
+
+      <p class="ops-process-copy">
+        The goal wasn't to make designers work faster.
+
+        It was to remove predictable friction so they could get
+        into the actual design work faster.
+
+        On most days, the average turnaround was around three
+        hours. When the deadline allowed for it, unplanned work
+        could operate around a longer 72-hour window.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       INFRASTRUCTURE
+  ========================================================= -->
+
+  <div class="ops-subsection">
+
+    <div class="ops-subsection-heading">
+
+      <h3>
+        The<br>
+        Infrastructure
+      </h3>
+
+      <p>
+        The system existed in actual tools and spaces the team
+        could use, not just in a set of instructions.
+      </p>
+
+    </div>
+
+
+    <div class="ops-image-pair">
+
+      <figure>
+
+        <div class="ops-image-frame">
+          <img
+            src="assets/CANVA WORKSPACE 1.png"
+            alt="TEDxUNILAG Canva workspace"
+          >
+        </div>
+
+        <figcaption class="ops-image-caption">
+          Canva Workspace — 01
+        </figcaption>
+
+      </figure>
+
+
+      <figure>
+
+        <div class="ops-image-frame">
+          <img
+            src="assets/CANVA WORKSPACE 2.png"
+            alt="TEDxUNILAG Canva workspace"
+          >
+        </div>
+
+        <figcaption class="ops-image-caption">
+          Canva Workspace — 02
+        </figcaption>
+
+      </figure>
+
+    </div>
+
+
+    <div
+      class="ops-image-pair"
+      style="margin-top: 4rem;"
+    >
+
+      <figure>
+
+        <div class="ops-image-frame">
+          <img
+            src="assets/CHATGPT WORKSPACE 1.png"
+            alt="TEDxUNILAG ChatGPT workspace"
+          >
+        </div>
+
+        <figcaption class="ops-image-caption">
+          ChatGPT Workspace — 01
+        </figcaption>
+
+      </figure>
+
+
+      <figure>
+
+        <div class="ops-image-frame">
+          <img
+            src="assets/CHATGPT WORKSPACE 2.png"
+            alt="TEDxUNILAG ChatGPT workspace"
+          >
+        </div>
+
+        <figcaption class="ops-image-caption">
+          ChatGPT Workspace — 02
+        </figcaption>
+
+      </figure>
+
+    </div>
+
+
+    <div class="ops-image-single">
+
+      <figure>
+
+        <div class="ops-image-frame">
+          <img
+            src="assets/CUSTOM AI CONCEPT ASSISTANT IN USE.png"
+            alt="Custom AI concept assistant in use"
+          >
+        </div>
+
+        <figcaption class="ops-image-caption">
+          Custom AI Concept Assistant — In Use
+        </figcaption>
+
+      </figure>
+
+    </div>
+
+
+    <div
+      class="ops-image-pair"
+      style="margin-top: 4rem;"
+    >
+
+      <figure>
+
+        <div class="ops-image-frame">
+          <img
+            src="assets/DESIGNED TEMPLATE DRIVE FOLDER.png"
+            alt="Designed template Drive folder"
+          >
+        </div>
+
+        <figcaption class="ops-image-caption">
+          Designed Template Drive Folder
+        </figcaption>
+
+      </figure>
+
+
+      <figure>
+
+        <div class="ops-image-frame">
+          <img
+            src="assets/RESOURCES DRIVE FOLDER.png"
+            alt="Resources Drive folder"
+          >
+        </div>
+
+        <figcaption class="ops-image-caption">
+          Resources Drive Folder
+        </figcaption>
+
+      </figure>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       PRESSURE TEST
+  ========================================================= -->
+
+  <div class="pressure-test">
+
+    <div class="pressure-intro">
+
+      <div class="ops-kicker">
+        The Pressure Test
+      </div>
+
+      <h3>
+        THE SYSTEM HAD<br>
+        TO WORK WHEN<br>
+        PLANS DIDN'T.
+      </h3>
+
+      <p>
+        Planning started around December 14 during Christmas break.
+        The first visual direction was eventually scrapped after I
+        realised I had misunderstood the narrative.
+      </p>
+
+      <p>
+        By February, the visual direction and templates were
+        established. When official project work began around April,
+        the team already had a working structure.
+      </p>
+
+      <p>
+        Then the structure was tested.
+      </p>
+
+    </div>
+
+
+    <div class="pressure-timeline">
+
+      <div class="pressure-step">
+
+        <div class="pressure-time">
+          9:11 PM
+        </div>
+
+        <strong>
+          Miscommunication
+        </strong>
+
+        <p>
+          A design request had been interpreted incorrectly.
+          The work in progress was solving the wrong requirement,
+          with a morning deadline approaching.
+        </p>
+
+      </div>
+
+
+      <div class="pressure-step">
+
+        <div class="pressure-time">
+          +11 MIN
+        </div>
+
+        <strong>
+          Align
+        </strong>
+
+        <p>
+          An emergency meeting brought together the organiser,
+          myself and a designer who had helped build the official
+          direction from the beginning.
+        </p>
+
+      </div>
+
+
+      <div class="pressure-step">
+
+        <div class="pressure-time">
+          ~9:30 PM
+        </div>
+
+        <strong>
+          Co-design
+        </strong>
+
+        <p>
+          Once the exact requirement and priority were clear,
+          we moved into the same Canva workspace and began
+          designing together in real time.
+        </p>
+
+      </div>
+
+
+      <div class="pressure-step">
+
+        <div class="pressure-time">
+          ~12:30 AM
+        </div>
+
+        <strong>
+          Deliver
+        </strong>
+
+        <p>
+          Approximately eight designs were produced and delivered
+          within roughly three hours.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <p class="stress-conclusion">
+      The system hadn't prevented the mistake.
+      It had made the mistake recoverable.
+    </p>
+
+  </div>
+
+
+  <!-- =========================================================
+       OUTCOMES
+  ========================================================= -->
+
+  <div class="ops-outcomes">
+
+    <div class="ops-outcomes-heading">
+
+      <h3>
+        What the<br>
+        system produced.
+      </h3>
+
+      <p>
+        The operating system was ultimately measured by what it
+        allowed the team to deliver consistently.
+      </p>
+
+    </div>
+
+
+    <div class="ops-outcome-grid">
+
+      <div class="ops-outcome">
+
+        <div class="ops-outcome-number">
+          250+
+        </div>
+
+        <div class="ops-outcome-label">
+          Assets delivered across the TEDxUNILAG 2.0 campaign
+        </div>
+
+      </div>
+
+
+      <div class="ops-outcome">
+
+        <div class="ops-outcome-number">
+          95%
+        </div>
+
+        <div class="ops-outcome-label">
+          Overall team efficiency
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       PRINCIPLE
+  ========================================================= -->
+
+  <div class="ops-principle">
+
+    <div class="ops-principle-kicker">
+      The Principle
+    </div>
+
+    <h3>
+      DON'T JUST<br>
+      DESIGN THE<br>
+      OUTPUT.
+    </h3>
+
+    <p>
+      Design the conditions that make good output repeatable.
+    </p>
+
+  </div>
+
+</section>
+
+  <!-- =========================================================
+       THANK YOU
+  ========================================================= -->
+
+  <div class="img-single large">
+
+    <img
+      src="assets/image-16-6d2c6b8d7b2d.jpg"
+      alt="Thank You poster closing the campaign"
+    >
+
+  </div>
+
+  <div class="closing-line">
+
+    <p>
+      "Some events end when the lights go out.
+      We hope this one began there."
+    </p>
+
+  </div>
+  
+  
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+
+  <footer>
+    TEDxUNILAG 2.0 — Creative Direction, Design &amp; Team Leadership
+  </footer>
+
+
+  <!-- =========================================================
+       LIGHTBOX
+  ========================================================= -->
+
+  <div
+    class="lightbox"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Image gallery"
+  >
+
+    <button
+      class="lightbox-close"
+      type="button"
+      aria-label="Close image gallery"
+    >
+      ×
+    </button>
+
+    <button
+      class="lightbox-nav lightbox-prev"
+      type="button"
+      aria-label="Previous image"
+    >
+      ‹
+    </button>
+
+    <img
+      class="lightbox-image"
+      id="lightboxImage"
+      alt=""
+    >
+
+    <button
+      class="lightbox-nav lightbox-next"
+      type="button"
+      aria-label="Next image"
+    >
+      ›
+    </button>
+
+    <div class="lightbox-info">
+
+      <div
+        class="lightbox-caption"
+        id="lightboxCaption"
+      ></div>
+
+      <div id="lightboxCounter"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       ASSET CONFIG
+  ========================================================= -->
+
+  <script>
+
+    const ASSETS = {
+
+      hero:
+        "assets/Main flyer.jpg",
+
+      mark:
+        "assets/the-mark.png",
+
+      performers:
+        "assets/image-02-596173cdef25.jpg",
+
+      vendors:
+        "assets/image-03-d3dcd3f390c6.jpg",
+
+      studentSpeakers:
+        "assets/image-04-6f823e75253c.jpg",
+
+      founders:
+        "assets/Call for founder.jpg",
+
+      speakerMichael:
+        "assets/image-05-f4a88f4177d1.jpg",
+
+      speakerLaju:
+        "assets/image-06-8373f46b8481.jpg",
+
+      speakerSheriff:
+        "assets/image-07-78efdd6b50be.jpg",
+
+      quoteTomiwa:
+        "assets/QUOTE-ALADEKOMO.jpg",
+
+      quoteAsunogie:
+        "assets/QUOTE-ASUNOGIE.png",
+
+      quoteMichaelPriscilla:
+        "assets/QUOTE-MICHAEL-PRISCILLA.png",
+
+      quoteLaju:
+        "assets/QUOTE-LAJU.png",
+
+      quoteAmaka:
+        "assets/QUOTE-AMAKA.png",
+
+      quoteSheriff:
+        "assets/QUOTE-SHERIFF.png",
+
+      voguerCover:
+        "assets/VOGUER-COVER.jpg",
+
+      voguerBio:
+        "assets/VOGUER-BIO.jpg",
+
+      boardJescil:
+        "assets/image-09-0b338428fd0b.jpg",
+
+      boardOluwaseyi:
+        "assets/image-10-53661a4dcb2d.jpg",
+
+      countdown14:
+        "assets/image-11-d8338355cd48.jpg",
+
+      countdown13:
+        "assets/image-12-ccc9582a61ab.jpg",
+
+      buildersPass:
+        "assets/image-13-8a8d868c638f.jpg",
+
+      lastChance:
+        "assets/image-14-5048ad9882d3.jpg",
+
+      itsToday:
+        "assets/image-15-f32f35906176.jpg",
+
+      thankYou:
+        "assets/image-16-6d2c6b8d7b2d.jpg",
+
+      speakersRoster:
+        "assets/image-01-18b2805f4da0.jpg",
+
+      /* =====================================================
+         OPERATIONS ASSETS
+         Replace these with your actual filenames.
+      ===================================================== */
+
+      operationsWorkspace:
+        "assets/operations-workspace.jpg",
+
+      operationsNinePM:
+        "assets/operations-9pm.jpg"
+
+    };
+
+
+    /* =========================================================
+       APPLY HERO ASSET
+    ========================================================= */
+
+    const hero =
+      document.querySelector(
+        "[data-asset-background='hero']"
+      );
+
+    if (hero) {
+
+      hero.style.backgroundImage = `
+        linear-gradient(
+          180deg,
+          rgba(11,11,12,0.15) 0%,
+          rgba(11,11,12,0.35) 45%,
+          rgba(11,11,12,0.94) 100%
+        ),
+        url("${ASSETS.hero}")
+      `;
+
+    }
+
+
+    /* =========================================================
+       IMAGE LIGHTBOX
+    ========================================================= */
+
+    const images = [
+  ...document.querySelectorAll(
+    ".img-pair img, .img-trio img, .img-four img, .img-single img, .quote-grid img, .gallery-grid img, .ops-image-frame img"
+  
+      )
+    ];
+
+
+    const unique = [];
+    const seen = new Set();
+
+
+    images.forEach((img) => {
+
+      if (!seen.has(img.src)) {
+
+        seen.add(img.src);
+        unique.push(img);
+
+      }
+
+      img.setAttribute(
+        "tabindex",
+        "0"
+      );
+
+      img.setAttribute(
+        "role",
+        "button"
+      );
+
+      img.setAttribute(
+        "aria-label",
+        `Open image: ${img.alt || "Image"}`
+      );
+
+    });
+
+
+    const lightbox =
+      document.getElementById(
+        "lightbox"
+      );
+
+    const lightboxImage =
+      document.getElementById(
+        "lightboxImage"
+      );
+
+    const caption =
+      document.getElementById(
+        "lightboxCaption"
+      );
+
+    const counter =
+      document.getElementById(
+        "lightboxCounter"
+      );
+
+    const closeButton =
+      lightbox.querySelector(
+        ".lightbox-close"
+      );
+
+    const prevButton =
+      lightbox.querySelector(
+        ".lightbox-prev"
+      );
+
+    const nextButton =
+      lightbox.querySelector(
+        ".lightbox-next"
+      );
+
+
+    let current = 0;
+    let lastFocused = null;
+
+
+    function show(index) {
+
+      if (!unique.length) return;
+
+      current =
+        (index + unique.length) %
+        unique.length;
+
+      const source =
+        unique[current];
+
+      lightboxImage.src =
+        source.src;
+
+      lightboxImage.alt =
+        source.alt || "Image";
+
+      caption.textContent =
+        source.alt || "";
+
+      counter.textContent =
+        `${current + 1} / ${unique.length}`;
+
+    }
+
+
+    function open(index) {
+
+      lastFocused =
+        document.activeElement;
+
+      show(index);
+
+      lightbox.classList.add(
+        "is-open"
+      );
+
+      document.body.style.overflow =
+        "hidden";
+
+      closeButton.focus();
+
+    }
+
+
+    function close() {
+
+      lightbox.classList.remove(
+        "is-open"
+      );
+
+      document.body.style.overflow =
+        "";
+
+      lightboxImage.removeAttribute(
+        "src"
+      );
+
+      if (lastFocused) {
+        lastFocused.focus();
+      }
+
+    }
+
+
+    function next() {
+      show(current + 1);
+    }
+
+
+    function prev() {
+      show(current - 1);
+    }
+
+
+    images.forEach((img) => {
+
+      const index =
+        unique.indexOf(img);
+
+
+      img.addEventListener(
+        "click",
+        () => open(index)
+      );
+
+
+      img.addEventListener(
+        "keydown",
+        (event) => {
+
+          if (
+            event.key === "Enter" ||
+            event.key === " "
+          ) {
+
+            event.preventDefault();
+
+            open(index);
+
+          }
+
+        }
+      );
+
+    });
+
+
+    closeButton.addEventListener(
+      "click",
+      close
+    );
+
+
+    nextButton.addEventListener(
+      "click",
+      (event) => {
+
+        event.stopPropagation();
+
+        next();
+
+      }
+    );
+
+
+    prevButton.addEventListener(
+      "click",
+      (event) => {
+
+        event.stopPropagation();
+
+        prev();
+
+      }
+    );
+
+
+    lightbox.addEventListener(
+      "click",
+      (event) => {
+
+        if (
+          event.target === lightbox
+        ) {
+
+          close();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          !lightbox.classList.contains(
+            "is-open"
+          )
+        ) {
+          return;
+        }
+
+
+        if (
+          event.key === "Escape"
+        ) {
+          close();
+        }
+
+
+        if (
+          event.key === "ArrowRight"
+        ) {
+          next();
+        }
+
+
+        if (
+          event.key === "ArrowLeft"
+        ) {
+          prev();
+        }
+
+      }
+    );
+    
+    /* =========================================================
+   CASE STUDY MOTION SYSTEM
+   Add this inside the existing <script> section.
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  /* -----------------------------------------
+     1. HERO ENTRANCE
+  ----------------------------------------- */
+
+  const hero = document.querySelector(".hero");
+
+  if (hero && !reduceMotion) {
+    const heroItems = hero.querySelectorAll(
+      ".hero-tag, .hero h1, .hero .tagline, .hero .meta-row, .hero-content > *"
+    );
+
+    heroItems.forEach((item, index) => {
+      item.style.opacity = "0";
+      item.style.transform = "translateY(20px)";
+
+      setTimeout(() => {
+        item.style.transition =
+          "opacity 800ms cubic-bezier(.22,1,.36,1), transform 800ms cubic-bezier(.22,1,.36,1)";
+        item.style.opacity = "1";
+        item.style.transform = "translateY(0)";
+      }, 100 + index * 120);
+    });
+
+    const overlay = hero.querySelector(".hero-overlay");
+
+    if (overlay) {
+      overlay.style.opacity = "0";
+
+      setTimeout(() => {
+        overlay.style.transition = "opacity 1200ms ease";
+        overlay.style.opacity = "1";
+      }, 100);
+    }
+  }
+
+
+  /* -----------------------------------------
+     2. SCROLL REVEALS
+  ----------------------------------------- */
+
+  const revealElements = document.querySelectorAll(`
+    .beat,
+    .img-single,
+    .img-pair,
+    .img-trio,
+    .quote-grid,
+    .gallery-section,
+    .img-caption,
+    .ops-process-row,
+    .ops-subsection,
+    .pressure-test,
+    .ops-outcomes,
+    .ops-principle,
+    .closing-line,
+    footer
+  `);
+
+  if (!reduceMotion) {
+    revealElements.forEach((element, index) => {
+      element.style.opacity = "0";
+      element.style.transform = "translateY(32px)";
+      element.style.transition =
+        "opacity 800ms cubic-bezier(.22,1,.36,1), transform 800ms cubic-bezier(.22,1,.36,1)";
+
+      /* Small stagger, but never excessive */
+      element.dataset.motionDelay = Math.min(index % 5, 4) * 60;
+    });
+
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const element = entry.target;
+          const delay = Number(element.dataset.motionDelay || 0);
+
+          setTimeout(() => {
+            element.style.opacity = "1";
+            element.style.transform = "translateY(0)";
+          }, delay);
+
+          observer.unobserve(element);
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -8% 0px"
+      }
+    );
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  }
+
+
+  /* -----------------------------------------
+     3. IMAGE MICRO-MOTION
+     Very subtle — no cheesy zoom effects.
+  ----------------------------------------- */
+
+  if (!reduceMotion) {
+    const images = document.querySelectorAll(`
+      .img-single img,
+      .img-pair img,
+      .img-trio img,
+      .quote-grid img,
+      .gallery-section img,
+      .ops-image-frame img
+    `);
+
+    images.forEach((image) => {
+      image.style.transition =
+        "transform 700ms cubic-bezier(.22,1,.36,1), opacity 500ms ease";
+
+      image.addEventListener("mouseenter", () => {
+        image.style.transform = "translateY(-4px)";
+      });
+
+      image.addEventListener("mouseleave", () => {
+        image.style.transform = "translateY(0)";
+      });
+    });
+  }
+
+
+  /* -----------------------------------------
+     4. PROCESS / SYSTEM ROWS
+     Slight movement when interacted with.
+  ----------------------------------------- */
+
+  if (!reduceMotion) {
+    const interactiveRows = document.querySelectorAll(`
+      .ops-process-row,
+      .pressure-step,
+      .ops-outcome
+    `);
+
+    interactiveRows.forEach((row) => {
+      row.style.transition =
+        "transform 400ms cubic-bezier(.22,1,.36,1), background 400ms ease";
+
+      row.addEventListener("mouseenter", () => {
+        row.style.transform = "translateX(5px)";
+      });
+
+      row.addEventListener("mouseleave", () => {
+        row.style.transform = "translateX(0)";
+      });
+    });
+  }
+
+
+  /* -----------------------------------------
+     5. LIGHTBOX TRANSITION
+     Works with the existing lightbox JS.
+  ----------------------------------------- */
+
+  const lightbox = document.querySelector(".lightbox");
+  const lightboxImage = document.querySelector(".lightbox-image");
+
+  if (lightbox && lightboxImage && !reduceMotion) {
+
+    /*
+      We don't replace the existing lightbox logic.
+      We simply add a transition layer to it.
+    */
+
+    lightbox.style.opacity = "0";
+    lightbox.style.transition =
+      "opacity 350ms cubic-bezier(.22,1,.36,1)";
+
+    lightboxImage.style.transition =
+      "opacity 350ms cubic-bezier(.22,1,.36,1), transform 450ms cubic-bezier(.22,1,.36,1)";
+
+    const lightboxObserver = new MutationObserver(() => {
+
+      if (lightbox.classList.contains("is-open")) {
+        lightbox.style.opacity = "1";
+        lightboxImage.style.opacity = "1";
+        lightboxImage.style.transform = "scale(1)";
+      } else {
+        lightbox.style.opacity = "0";
+        lightboxImage.style.opacity = "0";
+        lightboxImage.style.transform = "scale(.97)";
+      }
+
+    });
+
+    lightboxObserver.observe(lightbox, {
+      attributes: true,
+      attributeFilter: ["class"]
+    });
+  }
+
+
+  /* -----------------------------------------
+     6. ACTIVE IMAGE SWAP IN LIGHTBOX
+     Adds a tiny fade when moving between images.
+  ----------------------------------------- */
+
+  if (lightboxImage && !reduceMotion) {
+
+    const imageObserver = new MutationObserver(() => {
+
+      lightboxImage.style.opacity = "0";
+      lightboxImage.style.transform = "scale(.985)";
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          lightboxImage.style.opacity = "1";
+          lightboxImage.style.transform = "scale(1)";
+        });
+      });
+
+    });
+
+    imageObserver.observe(lightboxImage, {
+      attributes: true,
+      attributeFilter: ["src"]
+    });
+  }
+
+
+  /* -----------------------------------------
+     7. REDUCED MOTION FALLBACK
+  ----------------------------------------- */
+
+  if (reduceMotion) {
+    revealElements.forEach((element) => {
+      element.style.opacity = "1";
+      element.style.transform = "none";
+    });
+
+    if (hero) {
+      hero.querySelectorAll("*").forEach((element) => {
+        element.style.animation = "none";
+        element.style.transition = "none";
+        element.style.opacity = "1";
+        element.style.transform = "none";
+      });
+    }
+  }
+
+});
+
+  </script>
+
+</body>
+</html>
