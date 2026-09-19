@@ -10,10 +10,10 @@
 <style>
   :root {
     --black: #0b0b0c;
-    --red: #c21807;
-    --cream: #f7f5f2;
-    --muted: #d8d6d2;
+    --white: #f7f5f2;
     --grey: #9a9a96;
+    --muted: #d8d6d2;
+    --red: #c21807;
     --line: rgba(247,245,242,0.14);
   }
 
@@ -22,7 +22,7 @@
 
   body {
     background: var(--black);
-    color: var(--cream);
+    color: var(--white);
     font-family: 'Inter', Arial, sans-serif;
     font-weight: 400;
     line-height: 1.65;
@@ -57,7 +57,7 @@
   }
   .hero-content { position: relative; z-index: 2; max-width: 1100px; }
   .hero-tag { color: var(--red); font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 1.25rem; text-transform: uppercase; }
-  .hero h1.display { font-size: clamp(2.6rem, 8vw, 5.8rem); color: var(--cream); }
+  .hero h1.display { font-size: clamp(2.6rem, 8vw, 5.8rem); color: var(--white); }
   .hero .tagline { font-style: italic; color: var(--muted); font-size: clamp(1rem, 2vw, 1.3rem); margin-top: 1.2rem; max-width: 42ch; }
   .meta-row { display: flex; gap: 3rem; flex-wrap: wrap; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); font-size: 0.85rem; max-width: 1000px; }
   .meta-row div { min-width: 150px; }
@@ -66,10 +66,10 @@
   /* SECTIONS */
   section.beat { padding: 7rem 6vw; max-width: 800px; margin: 0 auto; }
   section.beat .num { color: var(--red); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 1rem; font-weight: 600; text-transform: uppercase; }
-  section.beat h2.display { font-size: clamp(1.9rem, 4.2vw, 3.2rem); margin-bottom: 1.6rem; color: var(--cream); }
+  section.beat h2.display { font-size: clamp(1.9rem, 4.2vw, 3.2rem); margin-bottom: 1.6rem; color: var(--white); }
   section.beat p { font-size: clamp(1.02rem, 1.5vw, 1.15rem); color: var(--muted); max-width: 66ch; margin-bottom: 1.2rem; }
   section.beat p:last-child { margin-bottom: 0; }
-  section.beat p.emphasis { color: var(--cream); font-weight: 500; }
+  section.beat p.emphasis { color: var(--white); font-weight: 500; }
 
   /* MONTH ENTRY */
   .month-entry {
@@ -85,7 +85,7 @@
   .month-entry.reverse > * { direction: ltr; }
   .month-entry img { width: 100%; display: block; border: 1px solid var(--line); cursor: zoom-in; }
   .month-entry .month-label { color: var(--red); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem; }
-  .month-entry h3.display { font-size: clamp(1.5rem, 3vw, 2.2rem); color: var(--cream); margin-bottom: 1.2rem; text-transform: none; }
+  .month-entry h3.display { font-size: clamp(1.5rem, 3vw, 2.2rem); color: var(--white); margin-bottom: 1.2rem; text-transform: none; }
   .month-entry p { color: var(--muted); font-size: 1rem; max-width: 48ch; }
 
   @media (max-width: 800px) {
@@ -134,7 +134,7 @@
   .lightbox-image { max-width: 90vw; max-height: 82vh; display: block; border: 1px solid var(--line); }
   .lightbox-close, .lightbox-nav {
     position: absolute; background: transparent; border: 1px solid var(--line);
-    color: var(--cream); width: 44px; height: 44px; border-radius: 50%;
+    color: var(--white); width: 44px; height: 44px; border-radius: 50%;
     font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
     transition: background 150ms ease;
   }
@@ -155,7 +155,7 @@
 </head>
 <body>
 
-<div class="hero" style="background-image: url('assets/tbc-vision%20january.jpg');">
+<div class="hero" style="background-image: url('assets/tbc-vision january.jpg');">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <p class="hero-tag">The Bookish Community — Theme of the Month</p>
@@ -184,7 +184,7 @@
 </section>
 
 <div class="month-entry">
-  <img src="assets/tbc-vision%20january.jpg" alt="Vision January — a glowing crystal ball on an ornate stand">
+  <img src="assets/tbc-vision january.jpg" alt="Vision January — a glowing crystal ball on an ornate stand">
   <div>
     <p class="month-label">January — Vision</p>
     <h3 class="display">The Crystal Ball</h3>
@@ -193,7 +193,7 @@
 </div>
 
 <div class="month-entry reverse">
-  <img src="assets/tbc-romeo%20february.jpg" alt="Romeo February — a golden arrow through a laurel wreath">
+  <img src="assets/tbc-romeo february.jpg" alt="Romeo February — a golden arrow through a laurel wreath">
   <div>
     <p class="month-label">February — Romeo</p>
     <h3 class="display">The Arrow and the Wreath</h3>
@@ -202,7 +202,7 @@
 </div>
 
 <div class="month-entry">
-  <img src="assets/tbc-march%20voice%20story.jpg" alt="Her Story, Her Voice — a microphone rising from an open book">
+  <img src="assets/tbc-march voice story.jpg" alt="Her Story, Her Voice — a microphone rising from an open book">
   <div>
     <p class="month-label">March — Her Story, Her Voice</p>
     <h3 class="display">The Mic in the Book</h3>
@@ -211,7 +211,7 @@
 </div>
 
 <div class="month-entry reverse">
-  <img src="assets/tbc-harry%20potter's%20april.jpg" alt="Harry Potter's April — a Hogwarts-like castle above the clouds">
+  <img src="assets/tbc-harry potter_s april.jpg" alt="Harry Potter's April — a Hogwarts-like castle above the clouds">
   <div>
     <p class="month-label">April — Harry Potter's April</p>
     <h3 class="display">The Academy in the Clouds</h3>
@@ -220,7 +220,7 @@
 </div>
 
 <div class="month-entry">
-  <img src="assets/tbc-managerie's%20may.jpg" alt="Managerie's May — an ornate key with a swirling portal above it">
+  <img src="assets/tbc-managerie_s may.jpg" alt="Managerie's May — an ornate key with a swirling portal above it">
   <div>
     <p class="month-label">May — Managerie's May</p>
     <h3 class="display">The Key</h3>
@@ -229,7 +229,7 @@
 </div>
 
 <div class="month-entry reverse">
-  <img src="assets/tbc-agatha's%20june.jpg" alt="Agatha's June — a woman writing at a desk lit by a window and a lamp">
+  <img src="assets/tbc-agatha_s june.jpg" alt="Agatha's June — a woman writing at a desk lit by a window and a lamp">
   <div>
     <p class="month-label">June — Agatha's June</p>
     <h3 class="display">The Study</h3>
@@ -251,8 +251,8 @@
 </section>
 
 <div class="img-pair">
-  <img src="assets/tbc-valentine's%20day.jpg" alt="Valentine's Day post, two gold hearts">
-  <img src="assets/tbc-happy%20new%20month%20february.jpg" alt="Happy New Month, February post">
+  <img src="assets/tbc-valentine_s day.jpg" alt="Valentine's Day post, two gold hearts">
+  <img src="assets/tbc-happy new month february.jpg" alt="Happy New Month, February post">
 </div>
 
 <div class="gallery-section">
@@ -260,16 +260,16 @@
   <h2 class="display">The Full Year</h2>
   <p>Six months, six objects, one recurring question: what is the smallest possible image that still carries the whole idea.</p>
   <div class="gallery-grid">
-    <img src="assets/tbc-vision%20january.jpg" alt="">
-    <img src="assets/tbc-romeo%20february.jpg" alt="">
-    <img src="assets/tbc-march%20voice%20story.jpg" alt="">
-    <img src="assets/tbc-harry%20potter's%20april.jpg" alt="">
-    <img src="assets/tbc-managerie's%20may.jpg" alt="">
-    <img src="assets/tbc-agatha's%20june.jpg" alt="">
-    <img src="assets/tbc-valentine's%20day.jpg" alt="">
-    <img src="assets/tbc-valentine's%20day%202.jpg" alt="">
-    <img src="assets/tbc-happy%20new%20month%20february.jpg" alt="">
-    <img src="assets/tbc-happy%20new%20month%20march.jpg" alt="">
+    <img src="assets/tbc-vision january.jpg" alt="">
+    <img src="assets/tbc-romeo february.jpg" alt="">
+    <img src="assets/tbc-march voice story.jpg" alt="">
+    <img src="assets/tbc-harry potter_s april.jpg" alt="">
+    <img src="assets/tbc-managerie_s may.jpg" alt="">
+    <img src="assets/tbc-agatha_s june.jpg" alt="">
+    <img src="assets/tbc-valentine_s day.jpg" alt="">
+    <img src="assets/tbc-valentine_s day 2.jpg" alt="">
+    <img src="assets/tbc-happy new month february.jpg" alt="">
+    <img src="assets/tbc-happy new month march.jpg" alt="">
     <img src="assets/tbc-booklore.jpg" alt="">
   </div>
 </div>
