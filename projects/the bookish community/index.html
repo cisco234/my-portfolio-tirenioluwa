@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><title>THE BOOKISH COMMUNITY — Case Study</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --black: #0b0b0c;
+    --red: #c21807;
+    --cream: #f7f5f2;
+    --muted: #d8d6d2;
+    --grey: #9a9a96;
+    --line: rgba(247,245,242,0.14);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; }
+
+  .display {
+    font-family: 'Archivo Black', 'Inter', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-size: cover;
+    background-position: center 25%;
+    padding: 8vw 6vw 6vw;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(11,11,12,0.15) 0%, rgba(11,11,12,0.45) 45%, rgba(11,11,12,0.96) 100%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 1100px; }
+  .hero-tag { color: var(--red); font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 1.25rem; text-transform: uppercase; }
+  .hero h1.display { font-size: clamp(2.6rem, 8vw, 5.8rem); color: var(--cream); }
+  .hero .tagline { font-style: italic; color: var(--muted); font-size: clamp(1rem, 2vw, 1.3rem); margin-top: 1.2rem; max-width: 42ch; }
+  .meta-row { display: flex; gap: 3rem; flex-wrap: wrap; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); font-size: 0.85rem; max-width: 1000px; }
+  .meta-row div { min-width: 150px; }
+  .meta-row .label { display: block; color: var(--grey); margin-bottom: 0.25rem; }
+
+  /* SECTIONS */
+  section.beat { padding: 7rem 6vw; max-width: 800px; margin: 0 auto; }
+  section.beat .num { color: var(--red); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 1rem; font-weight: 600; text-transform: uppercase; }
+  section.beat h2.display { font-size: clamp(1.9rem, 4.2vw, 3.2rem); margin-bottom: 1.6rem; color: var(--cream); }
+  section.beat p { font-size: clamp(1.02rem, 1.5vw, 1.15rem); color: var(--muted); max-width: 66ch; margin-bottom: 1.2rem; }
+  section.beat p:last-child { margin-bottom: 0; }
+  section.beat p.emphasis { color: var(--cream); font-weight: 500; }
+
+  /* MONTH ENTRY */
+  .month-entry {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 3rem;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 3rem 6vw;
+    align-items: center;
+  }
+  .month-entry.reverse { direction: rtl; }
+  .month-entry.reverse > * { direction: ltr; }
+  .month-entry img { width: 100%; display: block; border: 1px solid var(--line); cursor: zoom-in; }
+  .month-entry .month-label { color: var(--red); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem; }
+  .month-entry h3.display { font-size: clamp(1.5rem, 3vw, 2.2rem); color: var(--cream); margin-bottom: 1.2rem; text-transform: none; }
+  .month-entry p { color: var(--muted); font-size: 1rem; max-width: 48ch; }
+
+  @media (max-width: 800px) {
+    .month-entry { grid-template-columns: 1fr; direction: ltr !important; }
+    .month-entry > * { direction: ltr; }
+  }
+
+  /* IMAGE GROUPS */
+  .img-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 1100px; margin: 0 auto; padding: 0 6vw 2rem; }
+  .img-pair img { width: 100%; display: block; border: 1px solid var(--line); cursor: zoom-in; transition: opacity 180ms ease; }
+  .img-pair img:hover { opacity: 0.88; }
+  .img-caption { text-align: center; color: var(--grey); font-size: 0.85rem; max-width: 640px; margin: 1rem auto 0; padding: 0 6vw; }
+
+  @media (max-width: 640px) { .img-pair { grid-template-columns: 1fr; } }
+
+  /* GALLERY (masonry) */
+  .gallery-section { padding: 7rem 6vw 8rem; text-align: center; }
+  .gallery-section .num { color: var(--red); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 1rem; font-weight: 600; text-transform: uppercase; }
+  .gallery-section h2.display { font-size: clamp(1.9rem, 4.2vw, 3.2rem); margin-bottom: 1rem; }
+  .gallery-section p { color: var(--muted); max-width: 62ch; margin: 0 auto 3rem; font-size: clamp(1.02rem, 1.5vw, 1.15rem); }
+
+  .gallery-grid { column-count: 4; column-gap: 0.9rem; max-width: 1250px; margin: 0 auto; }
+  .gallery-grid img {
+    width: 100%; height: auto; display: block; margin-bottom: 0.9rem;
+    border: 1px solid var(--line); cursor: zoom-in; transition: opacity 180ms ease;
+    break-inside: avoid; background: #000;
+  }
+  .gallery-grid img:hover { opacity: 0.88; }
+
+  @media (max-width: 800px) { .gallery-grid { column-count: 2; } }
+  @media (max-width: 500px) { .gallery-grid { column-count: 1; } }
+
+  footer { text-align: center; padding: 4rem 6vw 6rem; color: var(--grey); font-size: 0.85rem; border-top: 1px solid var(--line); margin-top: 2rem; }
+
+  /* =========================
+     LIGHTBOX
+  ========================= */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(5,5,6,0.96);
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 4vw;
+  }
+  .lightbox.is-open { display: flex; }
+  .lightbox-image { max-width: 90vw; max-height: 82vh; display: block; border: 1px solid var(--line); }
+  .lightbox-close, .lightbox-nav {
+    position: absolute; background: transparent; border: 1px solid var(--line);
+    color: var(--cream); width: 44px; height: 44px; border-radius: 50%;
+    font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 150ms ease;
+  }
+  .lightbox-close:hover, .lightbox-nav:hover { background: rgba(246,234,210,0.12); }
+  .lightbox-close { top: 24px; right: 24px; }
+  .lightbox-prev { left: 24px; top: 50%; transform: translateY(-50%); }
+  .lightbox-next { right: 24px; top: 50%; transform: translateY(-50%); }
+  .lightbox-info { position: absolute; bottom: 24px; left: 0; right: 0; text-align: center; }
+  .lightbox-caption { color: var(--grey); font-size: 0.85rem; }
+
+  @media (max-width: 640px) {
+    .lightbox-image { max-width: 92vw; max-height: 74vh; }
+    .lightbox-close { width: 38px; height: 38px; top: 14px; right: 14px; }
+    .lightbox-prev { left: 10px; width: 38px; height: 38px; }
+    .lightbox-next { right: 10px; width: 38px; height: 38px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero" style="background-image: url('assets/tbc-vision%20january.jpg');">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-tag">The Bookish Community — Theme of the Month</p>
+    <h1 class="display">A Year Told<br>In Visual Metaphor</h1>
+    <p class="tagline">Six months, six objects, one experiment in making a fantasy world feel lit from within.</p>
+    <div class="meta-row">
+      <div><span class="label">Role</span>Visual Design Lead</div>
+      <div><span class="label">Scope</span>Monthly theme concepts, social campaign design</div>
+      <div><span class="label">Status</span>Ongoing series</div>
+    </div>
+  </div>
+</div>
+
+<section class="beat">
+  <p class="num">01</p>
+  <h2 class="display">The Community</h2>
+  <p>The Bookish Community runs a recurring "Theme of the Month" series — a monthly piece meant to visually anchor whatever the community was reading, celebrating or reflecting on that month. It was also the first real attempt at pure visual storytelling: instead of illustrating a theme literally, each month became a search for one object that could carry the idea on its own.</p>
+  <p class="emphasis">No layouts to follow, no brief beyond a theme name. Just a month, a feeling, and the question of what single image could hold it.</p>
+</section>
+
+<section class="beat">
+  <p class="num">02</p>
+  <h2 class="display">Finding the Object</h2>
+  <p>The process was the same every month: brainstorm visual metaphors — often prompting AI for options rather than starting from a blank page — then test the strongest candidates against each other inside Photoshop until one felt inevitable rather than merely correct.</p>
+  <p>For some months the answer was immediate. For others, several ideas got built out in full before one was chosen over the rest. The community leans heavily fantasy — so the search was never just "what represents this idea," but "what represents it in a way that still feels like it belongs on this page."</p>
+</section>
+
+<div class="month-entry">
+  <img src="assets/tbc-vision%20january.jpg" alt="Vision January — a glowing crystal ball on an ornate stand">
+  <div>
+    <p class="month-label">January — Vision</p>
+    <h3 class="display">The Crystal Ball</h3>
+    <p>Vision had obvious options — a scope, a pair of glasses, spectacles. All of them read as "sight" rather than "vision." The crystal ball won because it wasn't about seeing clearly in the present; it was about seeing what hasn't happened yet, which is what the word actually meant here. The most mystical option was also the most accurate one.</p>
+  </div>
+</div>
+
+<div class="month-entry reverse">
+  <img src="assets/tbc-romeo%20february.jpg" alt="Romeo February — a golden arrow through a laurel wreath">
+  <div>
+    <p class="month-label">February — Romeo</p>
+    <h3 class="display">The Arrow and the Wreath</h3>
+    <p>February's brief was romance, and the community's literary bent pointed straight at the classics rather than a generic heart. A gold arrow through a laurel wreath does the work a Valentine's heart can't — it reaches for Romeo and Juliet, and classical romance more broadly, instead of the nearest greeting-card symbol.</p>
+  </div>
+</div>
+
+<div class="month-entry">
+  <img src="assets/tbc-march%20voice%20story.jpg" alt="Her Story, Her Voice — a microphone rising from an open book">
+  <div>
+    <p class="month-label">March — Her Story, Her Voice</p>
+    <h3 class="display">The Mic in the Book</h3>
+    <p>For International Women's Day, the community wanted to center women's stories being told in their own words, not just celebrated. A microphone rising out of an open book fuses the two directly — the book is the story, the mic is the fact that she's the one telling it.</p>
+  </div>
+</div>
+
+<div class="month-entry reverse">
+  <img src="assets/tbc-harry%20potter's%20april.jpg" alt="Harry Potter's April — a Hogwarts-like castle above the clouds">
+  <div>
+    <p class="month-label">April — Harry Potter's April</p>
+    <h3 class="display">The Academy in the Clouds</h3>
+    <p>April's theme needed no invention — it borrowed directly from Hogwarts. The idea was an academy set above the clouds, on a mountain, so the castle reads as both unmistakably Hogwarts and slightly its own place: floating just out of reach, the way the books themselves felt at that age.</p>
+  </div>
+</div>
+
+<div class="month-entry">
+  <img src="assets/tbc-managerie's%20may.jpg" alt="Managerie's May — an ornate key with a swirling portal above it">
+  <div>
+    <p class="month-label">May — Managerie's May</p>
+    <h3 class="display">The Key</h3>
+    <p>An ornate key crowned with a swirling, galaxy-like portal, a spiral staircase winding around its shaft into a scatter of tiny floating worlds. The key that opens onto more than one place — a fitting image for a "menagerie" month, even if the exact reasoning behind it has since been lost to time.</p>
+  </div>
+</div>
+
+<div class="month-entry reverse">
+  <img src="assets/tbc-agatha's%20june.jpg" alt="Agatha's June — a woman writing at a desk lit by a window and a lamp">
+  <div>
+    <p class="month-label">June — Agatha's June</p>
+    <h3 class="display">The Study</h3>
+    <p>Named for Agatha Christie, June's image needed to feel like detective fiction rather than illustrate a detective. A woman at a desk, lit only by a narrow shaft of window light and a lamp, surrounded by books in a stone room — mid-thought, mid-page, in a world that looks built rather than decorated.</p>
+  </div>
+</div>
+
+<section class="beat" style="padding-top: 6rem;">
+  <p class="num">03</p>
+  <h2 class="display">Learning to Light It</h2>
+  <p>This series was also the first time lighting was treated as a design decision rather than a finishing touch. The palette itself was difficult to work with by default — a deep, slightly muddy green, a pale, almost sickly gold, and an off-white close to cream. Left alone, all three read as dull rather than atmospheric.</p>
+  <p>Getting them to feel like a fantasy world rather than a flat color scheme meant treating each piece like scene lighting rather than flat color fills — pushing highlights until the gold actually glowed, letting the green go near-black in the shadows so the light sources had somewhere dramatic to fall. The technique came before the polish; some months show it more confidently than others, which is exactly what a first attempt at something new should look like.</p>
+</section>
+
+<section class="beat">
+  <p class="num">04</p>
+  <h2 class="display">Everyday Social</h2>
+  <p>Alongside the monthly theme, the community still needed ordinary occasion posts — a Valentine's Day greeting, a new-month graphic — that didn't call for a bespoke concept, just the same visual system applied consistently. These carry the same palette and type as the themed series, but honestly: there isn't a deeper story behind them. They're the reliable, repeatable output a community account runs on between the bigger ideas.</p>
+</section>
+
+<div class="img-pair">
+  <img src="assets/tbc-valentine's%20day.jpg" alt="Valentine's Day post, two gold hearts">
+  <img src="assets/tbc-happy%20new%20month%20february.jpg" alt="Happy New Month, February post">
+</div>
+
+<div class="gallery-section">
+  <p class="num">05</p>
+  <h2 class="display">The Full Year</h2>
+  <p>Six months, six objects, one recurring question: what is the smallest possible image that still carries the whole idea.</p>
+  <div class="gallery-grid">
+    <img src="assets/tbc-vision%20january.jpg" alt="">
+    <img src="assets/tbc-romeo%20february.jpg" alt="">
+    <img src="assets/tbc-march%20voice%20story.jpg" alt="">
+    <img src="assets/tbc-harry%20potter's%20april.jpg" alt="">
+    <img src="assets/tbc-managerie's%20may.jpg" alt="">
+    <img src="assets/tbc-agatha's%20june.jpg" alt="">
+    <img src="assets/tbc-valentine's%20day.jpg" alt="">
+    <img src="assets/tbc-valentine's%20day%202.jpg" alt="">
+    <img src="assets/tbc-happy%20new%20month%20february.jpg" alt="">
+    <img src="assets/tbc-happy%20new%20month%20march.jpg" alt="">
+    <img src="assets/tbc-booklore.jpg" alt="">
+  </div>
+</div>
+
+<footer>
+  The Bookish Community — Theme of the Month Series
+</footer>
+
+<!-- =========================================================
+     LIGHTBOX
+========================================================= -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&#10005;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">&#10094;</button>
+  <img class="lightbox-image" id="lightboxImage" src="" alt="">
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">&#10095;</button>
+  <div class="lightbox-info">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var items = Array.prototype.slice.call(
+    document.querySelectorAll(".month-entry img, .img-pair img, .gallery-grid img")
+  );
+  var lb = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lightboxImage");
+  var lbCaption = document.getElementById("lightboxCaption");
+  var current = 0;
+
+  function openAt(i) {
+    current = i;
+    lbImg.src = items[current].src;
+    lbCaption.textContent = items[current].alt || "";
+    lb.classList.add("is-open");
+  }
+  function close() { lb.classList.remove("is-open"); }
+  function next() { openAt((current + 1) % items.length); }
+  function prev() { openAt((current - 1 + items.length) % items.length); }
+
+  items.forEach(function (img, i) {
+    img.addEventListener("click", function () { openAt(i); });
+  });
+  document.getElementById("lightboxClose").addEventListener("click", close);
+  document.getElementById("lightboxNext").addEventListener("click", next);
+  document.getElementById("lightboxPrev").addEventListener("click", prev);
+  lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+  document.addEventListener("keydown", function (e) {
+    if (!lb.classList.contains("is-open")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+  });
+})();
+</script>
+
+</body>
+</html>
