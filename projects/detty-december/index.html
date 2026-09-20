@@ -1578,8 +1578,6 @@
         id="lightboxCaption"
       ></div>
 
-      <div id="lightboxCounter"></div>
-
     </div>
 
   </div>
@@ -1640,19 +1638,7 @@
     ];
 
 
-    const unique = [];
-    const seen = new Set();
-
-
     images.forEach((img) => {
-
-      if (!seen.has(img.src)) {
-
-        seen.add(img.src);
-        unique.push(img);
-
-      }
-
 
       img.setAttribute(
         "tabindex",
@@ -1693,12 +1679,6 @@
       );
 
 
-    const counter =
-      document.getElementById(
-        "lightboxCounter"
-      );
-
-
     const closeButton =
       lightbox.querySelector(
         ".lightbox-close"
@@ -1725,16 +1705,16 @@
 
     function show(index) {
 
-      if (!unique.length) return;
+      if (!images.length) return;
 
 
       current =
-        (index + unique.length) %
-        unique.length;
+        (index + images.length) %
+        images.length;
 
 
       const source =
-        unique[current];
+        images[current];
 
 
       lightboxImage.src =
@@ -1747,10 +1727,6 @@
 
       caption.textContent =
         source.alt || "";
-
-
-      counter.textContent =
-        `${current + 1} / ${unique.length}`;
 
     }
 
@@ -1819,7 +1795,7 @@
     images.forEach((img) => {
 
       const index =
-        unique.indexOf(img);
+        images.indexOf(img);
 
 
       img.addEventListener(
