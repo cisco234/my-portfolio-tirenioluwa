@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><title>BEGIN™ — Case Study</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com" rel="preconnect"> 
+<link href="https://fonts.gstatic.com" rel="preconnect"> 
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+      --black: #0b0b0c;
+      --red: #c21807;
+      --white: #f7f5f2;
+      --grey: #9a9a96;
+      --muted: #d8d6d2;
+      --line: rgba(247, 245, 242, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Satoshi', 'Inter', Arial, sans-serif;
+      font-weight: 400;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+    
+    .display {
+      font-family: 'Satoshi', 'Archivo Black', 'Inter', sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -0.025em;
+    }
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-size: cover;
+    background-position: center 18%;
+    padding: 8vw 6vw 6vw;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(11,11,12,0.1) 0%, rgba(11,11,12,0.55) 55%, rgba(11,11,12,0.97) 100%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 1000px; }
+  .hero-tag { color: var(--white); font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 1.2rem; text-transform: uppercase; }
+  .hero .tagline { font-style: italic; color: var(--muted); font-size: clamp(1rem, 2vw, 1.3rem); margin-top: 1.2rem; max-width: 44ch; }
+  .meta-row { display: flex; gap: 3rem; flex-wrap: wrap; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); font-size: 0.85rem; }
+  .meta-row div { min-width: 150px; }
+  .meta-row .label { display: block; color: var(--grey); margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* =========================
+       TEXT SECTIONS
+    ========================= */
+    
+    section.beat {
+      padding: 8rem 6vw;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    
+    section.beat.wide {
+      max-width: 1100px;
+    }
+    
+    section.beat .num {
+      color: var(--red);
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    section.beat h2.display {
+      font-size: clamp(2rem, 5vw, 4rem);
+      margin-bottom: 2rem;
+      color: var(--white);
+    }
+    
+    section.beat p {
+      font-size: clamp(1.02rem, 1.5vw, 1.15rem);
+      color: var(--muted);
+      max-width: 68ch;
+      margin-bottom: 1.35rem;
+    }
+    
+    section.beat p:last-child {
+      margin-bottom: 0;
+    }
+    
+    .emphasis {
+      color: var(--white);
+      font-weight: 500;
+    }
+    
+    .section-intro {
+      font-size: clamp(1.15rem, 2vw, 1.4rem);
+      color: var(--white);
+    }
+  section.beat blockquote { 
+      border-left: 2px 
+      solid var(--red); 
+      padding-left: 1.5rem; 
+      font-style: italic; 
+      color: var(--muted); 
+      margin: 1.6rem 0; 
+    }
+
+  .img-single { max-width: 620px; margin: 0 auto; padding: 0 6vw 2rem; }
+  .img-single img { width: 100%; display: block; border: 1px solid var(--line); cursor: zoom-in; transition: opacity 180ms ease; }
+  .img-single img:hover { opacity: 0.88; }
+  .img-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 1100px; margin: 0 auto; padding: 0 6vw 2rem; }
+  .img-trio { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.2rem; max-width: 1200px; margin: 0 auto; padding: 0 6vw 2rem; }
+  .img-pair img, .img-trio img { width: 100%; display: block; border: 1px solid var(--line); cursor: zoom-in; transition: opacity 180ms ease; }
+  .img-pair img:hover, .img-trio img:hover { opacity: 0.88; }
+  .img-caption { text-align: center; color: var(--grey); font-size: 0.85rem; max-width: 640px; margin: 1rem auto 0; padding: 0 6vw; }
+  @media (max-width: 640px) { .img-pair, .img-trio { grid-template-columns: 1fr; } }
+
+  /* PROCESS MAP */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 6vw 2rem;
+    border-top: 1px solid var(--line);
+  }
+  .process-item {
+    padding: 2rem 1.5rem;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .process-item:last-child { border-right: none; }
+  .process-item .step-num { color: var(--red); font-size: 0.8rem; letter-spacing: 0.08em; margin-bottom: 0.8rem; }
+  .process-item h3 { font-family: 'Archivo Black', sans-serif; font-weight: 900; text-transform: uppercase; font-size: 1.3rem; margin-bottom: 0.8rem; }
+  .process-item p { color: var(--muted); font-size: 0.9rem; margin: 0; }
+  @media (max-width: 800px) {
+    .process-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 500px) {
+    .process-grid { grid-template-columns: 1fr; }
+    .process-item { border-right: none; }
+  }
+
+  /* OUTCOMES GRID */
+  .outcomes-section { background: var(--red); padding: 6rem 6vw; }
+  .outcomes-section .num { color: rgba(247,245,242,0.7); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 1rem; font-weight: 600; text-transform: uppercase; }
+  .outcomes-section h2.display { font-size: clamp(1.9rem, 4.2vw, 3.2rem); color: var(--white); margin-bottom: 3rem; max-width: 900px; }
+  .outcomes-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(255,255,255,0.3); }
+  .outcome { padding: 2rem 1.5rem 0; border-right: 1px solid rgba(255,255,255,0.3); }
+  .outcome:last-child { border-right: none; }
+  .outcome .outcome-number { display: block; font-family: 'Archivo Black', sans-serif; font-size: clamp(2.2rem, 4.5vw, 4rem); font-weight: 900; color: var(--white); line-height: 0.9; }
+  .outcome .outcome-label { display: block; margin-top: 1rem; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(247,245,242,0.85); }
+  @media (max-width: 800px) { .outcomes-grid { grid-template-columns: 1fr 1fr; } .outcome { border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 1.5rem; } }
+
+  .gallery-section { padding: 7rem 6vw 8rem; text-align: center; }
+  .gallery-section .num { color: var(--red); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 1rem; font-weight: 600; text-transform: uppercase; }
+  .gallery-section h2.display { font-size: clamp(1.9rem, 4.2vw, 3.2rem); margin-bottom: 1rem; }
+  .gallery-section p { color: var(--muted); max-width: 62ch; margin: 0 auto 3rem; font-size: clamp(1.02rem, 1.5vw, 1.15rem); }
+  .gallery-grid { column-count: 4; column-gap: 0.9rem; max-width: 1250px; margin: 0 auto; }
+  .gallery-grid img {
+    width: 100%; height: auto; display: block; margin-bottom: 0.9rem;
+    border: 1px solid var(--line); cursor: zoom-in; transition: opacity 180ms ease;
+    break-inside: avoid; background: #000;
+  }
+  .gallery-grid img:hover { opacity: 0.88; }
+  @media (max-width: 800px) { .gallery-grid { column-count: 2; } }
+  @media (max-width: 500px) { .gallery-grid { column-count: 1; } }
+
+  footer { text-align: center; padding: 4rem 6vw 6rem; color: var(--grey); font-size: 0.85rem; border-top: 1px solid var(--line); margin-top: 2rem; }
+
+  /* LIGHTBOX */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(5,5,6,0.96);
+    display: none; align-items: center; justify-content: center;
+    padding: 4vw;
+  }
+  .lightbox.is-open { display: flex; }
+  .lightbox-image { max-width: 90vw; max-height: 82vh; display: block; border: 1px solid var(--line); }
+  .lightbox-close, .lightbox-nav {
+    position: absolute; background: transparent; border: 1px solid var(--line);
+    color: var(--white); width: 44px; height: 44px; border-radius: 50%;
+    font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 150ms ease;
+  }
+  .lightbox-close:hover, .lightbox-nav:hover { background: rgba(247,245,242,0.12); }
+  .lightbox-close { top: 24px; right: 24px; }
+  .lightbox-prev { left: 24px; top: 50%; transform: translateY(-50%); }
+  .lightbox-next { right: 24px; top: 50%; transform: translateY(-50%); }
+  .lightbox-info { position: absolute; bottom: 24px; left: 0; right: 0; text-align: center; }
+  .lightbox-caption { color: var(--grey); font-size: 0.85rem; }
+  @media (max-width: 640px) {
+    .lightbox-image { max-width: 92vw; max-height: 74vh; }
+    .lightbox-close { width: 38px; height: 38px; top: 14px; right: 14px; }
+    .lightbox-prev { left: 10px; width: 38px; height: 38px; }
+    .lightbox-next { right: 10px; width: 38px; height: 38px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero" style="background-image: url('assets/reveal-poster.jpeg');">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-tag">Cave Labs — BEGIN™</p>
+    <p class="tagline">A structured and coordinated design execution system across a campaign for a seven-day rite of passage.</p>
+    <div class="meta-row">
+      <div><span class="label">Role</span>Creative Direction &amp; Team Systems</div>
+      <div><span class="label">Scope</span>Visual translation, prompt system, team coordination</div>
+      <div><span class="label">Status</span>Launched — 17/17 assets, zero rework</div>
+    </div>
+  </div>
+</div>
+
+<section class="beat">
+  <p class="num">01</p>
+  <h2 class="display">The Brief</h2>
+  <p>BEGIN™ is a seven-day challenge run by The Cave — a community already built around its own internal mythology, language and rites. This wasn't a blank-slate brand launch. It was an existing world that needed a specific campaign pulled out of it: a promotional push built on three pillars — Purpose, Clarity, Growth.</p>
+  <p class="emphasis">The job was inherited context, not invented context. The Cave already had a voice. BEGIN needed a visual register that could carry that voice to people who'd never heard it before.</p>
+</section>
+
+<section class="beat">
+  <p class="num">02</p>
+  <h2 class="display">The Read</h2>
+  <p>The Cave's internal doctrine speaks in myth — "a sect, a clan, a cult of craft," initiation, consecration, fire. Translated literally into external marketing, that register slides fast into a cliché this category already has too much of: gym-poster hustle culture, neon motivational graphics, grind-until-you-bleed visual noise.</p>
+  <p>The read that held instead: treat the challenge like an academy accepting new members, not a boot camp screaming at them. Monochrome. Classical statuary, stone texture, cinematic lighting. Geometric numerals built like architecture rather than typeset like a countdown app. The mythology stayed — the delivery became disciplined instead of loud.</p>
+</section>
+
+<div class="img-single">
+  <img src="assets/reveal-poster.jpeg" alt="BEGIN reveal poster, classical statuary and stone columns">
+</div>
+<p class="img-caption">Purpose, Clarity, Growth — stated once, plainly, against a scene that reads as an institution rather than an infomercial.</p>
+
+<section class="beat" style="padding-top: 6rem;">
+  <p class="num">03</p>
+  <h2 class="display">The Brief I Gave</h2>
+  <p>With zero hands-on design time budgeted, the direction had to survive being handed to five different designers without a single pixel touched personally. That meant writing the read down as language specific enough to produce consistent output, not a moodboard and a hope.</p>
+  <p>The Cave's own Creative Media Prompt Sheet became the backbone: pick a Voice & Style from a fixed set — <em>Mythic, Practical, Introspective, Provocative, Rhythmic, Cinematic, Tribal</em> — name the Visual Symbols, state the Mood & Energy, name the non-negotiable Core Message. For BEGIN, the answer to every one of those fields was the same: Cinematic. Monochrome. Academy, not gym.</p>
+  <blockquote>"Create a design piece inspired by BEGIN. Style should be cinematic, classical, monochrome. Include symbols such as columns, statuary, geometric numerals. Used for the reveal and countdown sequence."</blockquote>
+</section>
+
+<section class="beat" style="padding-top: 6rem;">
+  <p class="num">04</p>
+  <h2 class="display">The Output</h2>
+  <p>The kickoff post made the campaign's central metaphor literal — a head built from cubes, mid-assembly, next to the line "Let's build your future brick by brick." Not an illustration of the idea beside the words; the words describing exactly what the image is doing.</p>
+</section>
+
+<div class="img-single" style="padding-top: 0;">
+  <img src="assets/kickoff-post.jpg" alt="BEGIN kickoff post, a head constructed from geometric blocks">
+</div>
+
+<section class="beat" style="padding-top: 6rem;">
+  <p class="num"></p>
+  <p>The countdown series needed to feel like pressure accumulating, not a calendar ticking down. Each numeral is built rather than typeset — constructed from geometric shapes with a monochrome photograph set into the construction itself, paired with a Greek phrase running underneath. The number of days left was never just a number; it was another piece of the same architecture.</p>
+</section>
+
+<div class="img-single" style="padding-top: 0;">
+  <img src="assets/countdown-5-days.png" alt="Countdown graphic, 5 days to go, geometric numeral construction">
+</div>
+
+<section class="beat" style="padding-top: 6rem;">
+  <p class="num"></p>
+  <p>The daily affirmations needed to survive seven straight days without repeating the same visual idea twice, while still reading as unmistakably one series. The solution was one photographed object per day, chosen to literalize that day's specific line — Day 1 pairs "I have been moving without a compass. Today, I choose direction" with an actual compass laid over a map.</p>
+</section>
+
+<div class="img-trio">
+  <img src="assets/affirmation-day-1.jpg" alt="Affirmation Day 1, a compass on a map">
+  <img src="assets/affirmation-day-2.jpg" alt="Affirmation Day 2">
+  <img src="assets/affirmation-day-3.jpg" alt="Affirmation Day 3">
+</div>
+<div class="img-trio">
+  <img src="assets/affirmation-day-4.jpg" alt="Affirmation Day 4">
+  <img src="assets/affirmation-day-5.jpg" alt="Affirmation Day 5, walking with kings">
+  <img src="assets/affirmation-day-6.jpg" alt="Affirmation Day 6, a spotlight and podium">
+</div>
+<div class="img-pair">
+  <img src="assets/affirmation-day-7.jpg" alt="Affirmation Day 7, closing the challenge">
+  <img src="assets/affirmation-day-1-alt.jpg" alt="Affirmation Day 1, alternate version">
+</div>
+<p class="img-caption">Seven days, seven objects, one register held throughout.</p>
+
+<div class="img-single">
+  <img src="assets/pre-story-visual.png" alt="Pre-story visual, war against the average">
+</div>
+<p class="img-caption">The pre-launch teaser, seeding the "rebellion, not routine" framing before anyone knew what BEGIN actually was.</p>
+
+<section class="beat" style="padding-top: 6rem;">
+  <p class="num">05</p>
+  <h2 class="display">The System Behind the System</h2>
+  <p>Getting one designer to execute a direction well is a design problem. Getting five designers to execute the same direction consistently, on a fixed launch date, without a shared file or a standing daily meeting, is a different problem entirely — and it was half the actual job.</p>
+</section>
+
+<div class="process-grid">
+  <div class="process-item">
+    <p class="step-num">01</p>
+    <h3>Read</h3>
+    <p>Assess each designer's real speed and skill honestly, before assigning anything — not their stated skill level, their actual one.</p>
+  </div>
+  <div class="process-item">
+    <p class="step-num">02</p>
+    <h3>Calibrate</h3>
+    <p>Match asset volume and deadline to capacity. Slower designers get fewer assets and more runway; faster ones get more volume and tighter turnarounds.</p>
+  </div>
+  <div class="process-item">
+    <p class="step-num">03</p>
+    <h3>Stretch</h3>
+    <p>Deliberately misassign against type — the main flyer to a less-experienced designer to raise their ceiling, the least-forgiving briefs to the most rigid, technical ones.</p>
+  </div>
+  <div class="process-item">
+    <p class="step-num">04</p>
+    <h3>Check-in</h3>
+    <p>No shared tracker. Two structured syncs a week plus an async group-chat pulse — assign Monday, confirm same day, no chasing.</p>
+  </div>
+</div>
+
+<section class="beat" style="padding-top: 6rem;">
+  <p class="num">06</p>
+  <h2 class="display">No Fires to Put Out</h2>
+  <p>The honest version of this section isn't a crisis story, because there wasn't one. That absence is the actual result: a system built well enough that nothing broke, rather than a system that survived something breaking. Calm is harder to engineer than a good recovery story, and less exciting to tell — but it's the more accurate measure of whether the system worked.</p>
+</section>
+
+<div class="outcomes-section">
+  <p class="num">07</p>
+  <h2 class="display">Outcomes</h2>
+  <div class="outcomes-grid">
+    <div class="outcome">
+      <span class="outcome-number">17</span>
+      <span class="outcome-label">Assets delivered</span>
+    </div>
+    <div class="outcome">
+      <span class="outcome-number">100%</span>
+      <span class="outcome-label">Approved first time, no rework</span>
+    </div>
+    <div class="outcome">
+      <span class="outcome-number">3</span>
+      <span class="outcome-label">Days margin before hard launch</span>
+    </div>
+    <div class="outcome">
+      <span class="outcome-number">5</span>
+      <span class="outcome-label">Designers coordinated, zero drop-off</span>
+    </div>
+  </div>
+</div>
+
+<div class="gallery-section">
+  <p class="num">08</p>
+  <h2 class="display">The Full Campaign</h2>
+  <p>Seventeen assets total, one designer's read of a direction they never had to guess at twice.</p>
+  <div class="gallery-grid">
+    <img src="assets/reveal-poster.jpeg" alt="">
+    <img src="assets/pre-story-visual.png" alt="">
+    <img src="assets/kickoff-post.jpg" alt="">
+    <img src="assets/countdown-5-days.png" alt="">
+    <img src="assets/countdown-4-days.png" alt="">
+    <img src="assets/countdown-3-days.png" alt="">
+    <img src="assets/countdown-2-days.png" alt="">
+    <img src="assets/countdown-1-day.png" alt="">
+    <img src="assets/affirmation-day-1.jpg" alt="">
+    <img src="assets/affirmation-day-1-alt.jpg" alt="">
+    <img src="assets/affirmation-day-2.jpg" alt="">
+    <img src="assets/affirmation-day-3.jpg" alt="">
+    <img src="assets/affirmation-day-4.jpg" alt="">
+    <img src="assets/affirmation-day-5.jpg" alt="">
+    <img src="assets/affirmation-day-6.jpg" alt="">
+    <img src="assets/affirmation-day-7.jpg" alt="">
+  </div>
+</div>
+
+<footer>
+  BEGIN™ — Cave Labs — Creative Direction &amp; Team Systems
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&#10005;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">&#10094;</button>
+  <img class="lightbox-image" id="lightboxImage" src="" alt="">
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">&#10095;</button>
+  <div class="lightbox-info">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var items = Array.prototype.slice.call(
+    document.querySelectorAll(".img-single img, .img-pair img, .img-trio img, .gallery-grid img")
+  );
+  var lb = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lightboxImage");
+  var lbCaption = document.getElementById("lightboxCaption");
+  var current = 0;
+
+  function openAt(i) {
+    current = i;
+    lbImg.src = items[current].src;
+    lbCaption.textContent = items[current].alt || "";
+    lb.classList.add("is-open");
+  }
+  function close() { lb.classList.remove("is-open"); }
+  function next() { openAt((current + 1) % items.length); }
+  function prev() { openAt((current - 1 + items.length) % items.length); }
+
+  items.forEach(function (img, i) {
+    img.addEventListener("click", function () { openAt(i); });
+  });
+  document.getElementById("lightboxClose").addEventListener("click", close);
+  document.getElementById("lightboxNext").addEventListener("click", next);
+  document.getElementById("lightboxPrev").addEventListener("click", prev);
+  lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+  document.addEventListener("keydown", function (e) {
+    if (!lb.classList.contains("is-open")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+  });
+})();
+</script>
+
+</body>
+</html>
