@@ -386,31 +386,19 @@
        LIGHTBOX
     ========================= */
     
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 4.5rem 5rem;
-      background: rgba(0, 0, 0, 0.95);
-    }
+     .lightbox {
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(5,5,6,0.96);
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 4vw;
+   }
     
     .lightbox.is-open {
       display: flex;
     }
     
-    .lightbox-image {
-      max-width: min(92vw, 1500px);
-      max-height: 88vh;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
-      user-select: none;
-    }
+     .lightbox-image { max-width: 90vw; max-height: 82vh; display: block; border: 1px solid var(--line); }
     
     .lightbox-close,
     .lightbox-nav {
