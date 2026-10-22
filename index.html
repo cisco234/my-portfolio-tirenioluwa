@@ -2341,626 +2341,205 @@
          JAVASCRIPT
     ========================================= -->
 
- <script>
-  /* =========================================================
-     ASSET CONFIG
-  ========================================================= */
+    <script>
 
-  const ASSETS = {
-    hero: "assets/main flyer.jpg",
-    mark: "assets/the-mark.png",
+        /*
+         * SCROLL REVEAL
+         */
 
-    performers: "assets/image-02-596173cdef25.jpg",
-    vendors: "assets/image-03-d3dcd3f390c6.jpg",
-    studentSpeakers: "assets/image-04-6f823e75253c.jpg",
-    founders: "assets/call for founder.jpg",
+        const revealElements = document.querySelectorAll(".reveal");
 
-    speakerMichael: "assets/image-05-f4a88f4177d1.jpg",
-    speakerLaju: "assets/image-06-8373f46b8481.jpg",
-    speakerSheriff: "assets/image-07-78efdd6b50be.jpg",
+        const revealObserver = new IntersectionObserver(
+            (entries) => {
 
-    quoteTomiwa: "assets/quote-aladekomo.jpg",
-    quoteAsunogie: "assets/quote-asunogie.png",
-    quoteMichaelPriscilla: "assets/quote-michael-priscilla.png",
-    quoteLaju: "assets/quote-laju.png",
-    quoteAmaka: "assets/quote-amaka.png",
-    quoteSheriff: "assets/quote-sheriff.png",
+                entries.forEach((entry) => {
 
-    voguerCover: "assets/voguer-cover.jpg",
-    voguerBio: "assets/voguer-bio.jpg",
+                    if (entry.isIntersecting) {
 
-    boardJescil: "assets/image-09-0b338428fd0b.jpg",
-    boardOluwaseyi: "assets/image-10-53661a4dcb2d.jpg",
+                        entry.target.classList.add("visible");
 
-    countdown14: "assets/image-11-d8338355cd48.jpg",
-    countdown13: "assets/image-12-ccc9582a61ab.jpg",
+                        revealObserver.unobserve(entry.target);
 
-    buildersPass: "assets/image-13-8a8d868c638f.jpg",
-    lastChance: "assets/image-14-5048ad9882d3.jpg",
-    itsToday: "assets/image-15-f32f35906176.jpg",
+                    }
 
-    thankYou: "assets/image-16-6d2c6b8d7b2d.jpg",
+                });
 
-    speakersRoster: "assets/image-01-18b2805f4da0.jpg",
-
-    operationsWorkspace: "assets/operations-workspace.jpg",
-    operationsNinePM: "assets/operations-9pm.jpg"
-  };
-
-
-  /* =========================================================
-     INITIALISE PAGE
-  ========================================================= */
-
-  document.addEventListener("DOMContentLoaded", () => {
-
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-
-    /* =========================================================
-       1. HERO BACKGROUND
-    ========================================================= */
-
-    const hero = document.querySelector(
-      "[data-asset-background='hero']"
-    );
-
-    if (hero) {
-      hero.style.backgroundImage = `
-        linear-gradient(
-          180deg,
-          rgba(11,11,12,0.15) 0%,
-          rgba(11,11,12,0.35) 45%,
-          rgba(11,11,12,0.94) 100%
-        ),
-        url("${ASSETS.hero}")
-      `;
-    }
-
-
-    /* =========================================================
-       2. IMAGE LIGHTBOX
-    ========================================================= */
-
-    const images = Array.from(
-      document.querySelectorAll(
-        [
-          ".img-pair img",
-          ".img-trio img",
-          ".img-four img",
-          ".img-single img",
-          ".quote-grid img",
-          ".gallery-grid img",
-          ".ops-image-frame img"
-        ].join(",")
-      )
-    );
-
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.getElementById("lightboxImage");
-    const caption = document.getElementById("lightboxCaption");
-
-    let current = 0;
-    let lastFocused = null;
-
-    if (lightbox && lightboxImage && caption) {
-
-      const closeButton = lightbox.querySelector(".lightbox-close");
-      const prevButton = lightbox.querySelector(".lightbox-prev");
-      const nextButton = lightbox.querySelector(".lightbox-next");
-
-      function show(index) {
-        if (!images.length) return;
-
-        current = (index + images.length) % images.length;
-
-        const source = images[current];
-
-        lightboxImage.src = source.currentSrc || source.src;
-        lightboxImage.alt = source.alt || "Image";
-
-        caption.textContent = source.alt || "";
-      }
-
-
-      function open(index) {
-        lastFocused = document.activeElement;
-
-        show(index);
-
-        lightbox.classList.add("is-open");
-        document.body.style.overflow = "hidden";
-
-        if (closeButton) {
-          closeButton.focus();
-        }
-      }
-
-
-      function close() {
-        lightbox.classList.remove("is-open");
-        document.body.style.overflow = "";
-
-        lightboxImage.removeAttribute("src");
-
-        if (lastFocused && typeof lastFocused.focus === "function") {
-          lastFocused.focus();
-        }
-      }
-
-
-      function next() {
-        show(current + 1);
-      }
-
-
-      function prev() {
-        show(current - 1);
-      }
-
-
-      images.forEach((img, index) => {
-
-        img.setAttribute("tabindex", "0");
-        img.setAttribute("role", "button");
-
-        img.setAttribute(
-          "aria-label",
-          `Open image: ${img.alt || "Image"}`
+            },
+            {
+                threshold: 0.12
+            }
         );
 
-        img.addEventListener("click", () => {
-          open(index);
-        });
-
-        img.addEventListener("keydown", (event) => {
-
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            open(index);
-          }
-
-        });
-
-      });
-
-
-      if (closeButton) {
-        closeButton.addEventListener("click", close);
-      }
-
-
-      if (nextButton) {
-        nextButton.addEventListener("click", (event) => {
-          event.stopPropagation();
-          next();
-        });
-      }
-
-
-      if (prevButton) {
-        prevButton.addEventListener("click", (event) => {
-          event.stopPropagation();
-          prev();
-        });
-      }
-
-
-      lightbox.addEventListener("click", (event) => {
-
-        if (event.target === lightbox) {
-          close();
-        }
-
-      });
-
-
-      document.addEventListener("keydown", (event) => {
-
-        if (!lightbox.classList.contains("is-open")) {
-          return;
-        }
-
-        if (event.key === "Escape") {
-          close();
-        }
-
-        if (event.key === "ArrowRight") {
-          next();
-        }
-
-        if (event.key === "ArrowLeft") {
-          prev();
-        }
-
-      });
-
-    }
-
-
-    /* =========================================================
-       3. HERO ENTRANCE ANIMATION
-    ========================================================= */
-
-    if (hero && !reduceMotion) {
-
-      const heroItems = hero.querySelectorAll(
-        ".hero-tag, .hero h1, .hero .tagline, .hero .meta-row"
-      );
-
-      heroItems.forEach((item, index) => {
-
-        item.style.opacity = "0";
-        item.style.transform = "translateY(20px)";
-
-        setTimeout(() => {
-
-          item.style.transition =
-            "opacity 800ms cubic-bezier(.22,1,.36,1), " +
-            "transform 800ms cubic-bezier(.22,1,.36,1)";
-
-          item.style.opacity = "1";
-          item.style.transform = "translateY(0)";
-
-        }, 100 + index * 120);
-
-      });
-
-
-      const overlay = hero.querySelector(".hero-overlay");
-
-      if (overlay) {
-
-        overlay.style.opacity = "0";
-
-        setTimeout(() => {
-
-          overlay.style.transition = "opacity 1200ms ease";
-          overlay.style.opacity = "1";
-
-        }, 100);
-
-      }
-
-    }
-
-
-    /* =========================================================
-       4. SCROLL REVEALS
-
-       IMPORTANT FIXES:
-       - The tall Section 11 parent is never hidden by this system.
-       - A reveal triggers as soon as an element enters the viewport.
-       - Elements are revealed immediately if IntersectionObserver
-         is unavailable.
-       - Nested elements cannot keep the entire section invisible.
-    ========================================================= */
-
-    const revealElements = document.querySelectorAll(`
-      .beat:not(.ops-section),
-      .img-single,
-      .img-pair,
-      .img-trio,
-      .img-four,
-      .quote-grid,
-      .gallery-section,
-      .img-caption,
-      .ops-lead,
-      .ops-process,
-      .ops-process-row,
-      .ops-subsection,
-      .pressure-test,
-      .pressure-step,
-      .ops-outcomes,
-      .ops-outcome,
-      .ops-principle,
-      .closing-line,
-      footer
-    `);
-
-
-    function revealImmediately(element) {
-      element.style.opacity = "1";
-      element.style.transform = "none";
-      element.style.visibility = "visible";
-    }
-
-
-    if (!reduceMotion && "IntersectionObserver" in window) {
-
-      revealElements.forEach((element, index) => {
-
-        element.style.opacity = "0";
-        element.style.transform = "translateY(32px)";
-        element.style.visibility = "visible";
-
-        element.style.transition =
-          "opacity 800ms cubic-bezier(.22,1,.36,1), " +
-          "transform 800ms cubic-bezier(.22,1,.36,1)";
-
-        element.dataset.motionDelay = (index % 5) * 60;
-
-      });
-
-
-      const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-
-          entries.forEach((entry) => {
-
-            if (!entry.isIntersecting) {
-              return;
-            }
-
-            const element = entry.target;
-
-            const delay = Number(
-              element.dataset.motionDelay || 0
-            );
-
-            setTimeout(() => {
-
-              element.style.opacity = "1";
-              element.style.transform = "translateY(0)";
-              element.style.visibility = "visible";
-
-            }, delay);
-
-            observer.unobserve(element);
-
-          });
-
-        },
-        {
-          threshold: 0,
-          rootMargin: "0px 0px 0px 0px"
-        }
-      );
-
-
-      revealElements.forEach((element) => {
-        revealObserver.observe(element);
-      });
-
-
-      /*
-        SAFETY FALLBACK
-
-        If an element is already inside the viewport when the
-        observer starts, reveal it immediately. This prevents
-        elements from being left invisible because of missed
-        observer events or unusual viewport behaviour.
-      */
-
-      requestAnimationFrame(() => {
-
-        const viewportHeight = window.innerHeight;
 
         revealElements.forEach((element) => {
-
-          const rect = element.getBoundingClientRect();
-
-          if (
-            rect.top < viewportHeight &&
-            rect.bottom > 0
-          ) {
-
-            element.style.opacity = "1";
-            element.style.transform = "translateY(0)";
-            element.style.visibility = "visible";
-
-            revealObserver.unobserve(element);
-
-          }
-
-        });
-
-      });
-
-    } else {
-
-      revealElements.forEach(revealImmediately);
-
-    }
-
-
-    /* =========================================================
-       5. IMAGE MICRO-MOTION
-    ========================================================= */
-
-    if (!reduceMotion) {
-
-      const animatedImages = document.querySelectorAll(`
-        .img-single img,
-        .img-pair img,
-        .img-trio img,
-        .img-four img,
-        .quote-grid img,
-        .gallery-section img,
-        .ops-image-frame img
-      `);
-
-
-      animatedImages.forEach((image) => {
-
-        image.style.transition =
-          "transform 700ms cubic-bezier(.22,1,.36,1), " +
-          "opacity 500ms ease";
-
-
-        image.addEventListener("mouseenter", () => {
-          image.style.transform = "translateY(-4px)";
+            revealObserver.observe(element);
         });
 
 
-        image.addEventListener("mouseleave", () => {
-          image.style.transform = "translateY(0)";
-        });
+        /*
+         * PROJECT IMAGE PARALLAX
+         */
 
-      });
-
-    }
-
-
-    /* =========================================================
-       6. PROCESS / SYSTEM ROW INTERACTIONS
-    ========================================================= */
-
-    if (!reduceMotion) {
-
-      const interactiveRows = document.querySelectorAll(`
-        .ops-process-row,
-        .pressure-step,
-        .ops-outcome
-      `);
+        const projectCards =
+            document.querySelectorAll(".project-card");
 
 
-      interactiveRows.forEach((row) => {
+        window.addEventListener(
+            "scroll",
+            () => {
 
-        row.style.transition =
-          "transform 400ms cubic-bezier(.22,1,.36,1), " +
-          "background 400ms ease";
+                projectCards.forEach((card) => {
+
+                    const image =
+                        card.querySelector(".project-image img");
+
+                    if (!image) return;
+
+                    const rect =
+                        card.getBoundingClientRect();
+
+                    const windowHeight =
+                        window.innerHeight;
+
+                    if (
+                        rect.bottom > 0 &&
+                        rect.top < windowHeight
+                    ) {
+
+                        const progress =
+                            (windowHeight - rect.top) /
+                            (windowHeight + rect.height);
+
+                        const movement =
+                            (progress - 0.5) * 12;
+
+                        image.style.transform =
+                            `translateY(${movement}px) scale(1.03)`;
+
+                    }
+
+                });
+
+            },
+            {
+                passive: true
+            }
+        );
 
 
-        row.addEventListener("mouseenter", () => {
-          row.style.transform = "translateX(5px)";
-        });
+        /*
+         * MOBILE MENU
+         */
+
+        const menuToggle =
+            document.querySelector(".menu-toggle");
+
+        const nav =
+            document.querySelector(".nav");
+
+        const navLinks =
+            document.querySelector(".nav-links");
+
+        const menuClose =
+            document.querySelector(".menu-close");
 
 
-        row.addEventListener("mouseleave", () => {
-          row.style.transform = "translateX(0)";
-        });
+        menuToggle.addEventListener(
+            "click",
+            () => {
 
-      });
+                document.body.classList.add("menu-open");
 
-    }
+                nav.classList.add("menu-active");
 
+                navLinks.classList.add("menu-visible");
 
-    /* =========================================================
-       7. LIGHTBOX TRANSITIONS
-    ========================================================= */
-
-    if (lightbox && lightboxImage && !reduceMotion) {
-
-      lightbox.style.opacity = "0";
-
-      lightbox.style.transition =
-        "opacity 350ms cubic-bezier(.22,1,.36,1)";
+            }
+        );
 
 
-      lightboxImage.style.transition =
-        "opacity 350ms cubic-bezier(.22,1,.36,1), " +
-        "transform 450ms cubic-bezier(.22,1,.36,1)";
+        /*
+         * CLOSE MOBILE MENU AFTER CLICK
+         */
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach((link) => {
+
+                link.addEventListener(
+                    "click",
+                    closeMobileMenu
+                );
+
+            });
 
 
-      const lightboxObserver = new MutationObserver(() => {
+        /*
+         * CLOSE BUTTON
+         */
 
-        if (lightbox.classList.contains("is-open")) {
+        menuClose.addEventListener(
+            "click",
+            closeMobileMenu
+        );
 
-          lightbox.style.opacity = "1";
-          lightboxImage.style.opacity = "1";
-          lightboxImage.style.transform = "scale(1)";
 
-        } else {
+        function closeMobileMenu() {
 
-          lightbox.style.opacity = "0";
-          lightboxImage.style.opacity = "0";
-          lightboxImage.style.transform = "scale(.97)";
+            document.body.classList.remove(
+                "menu-open"
+            );
+
+            nav.classList.remove(
+                "menu-active"
+            );
+
+            navLinks.classList.remove(
+                "menu-visible"
+            );
 
         }
 
-      });
+
+        /*
+         * MAGNETIC CONTACT ARROW
+         */
+
+        const contactCTA =
+            document.querySelector(".contact-cta");
 
 
-      lightboxObserver.observe(lightbox, {
-        attributes: true,
-        attributeFilter: ["class"]
-      });
+        contactCTA.addEventListener(
+            "mousemove",
+            (event) => {
 
-    }
+                const rect =
+                    contactCTA.getBoundingClientRect();
 
+                const x =
+                    event.clientX - rect.left - rect.width / 2;
 
-    /* =========================================================
-       8. LIGHTBOX IMAGE-SWAP TRANSITION
-    ========================================================= */
+                const y =
+                    event.clientY - rect.top - rect.height / 2;
 
-    if (lightboxImage && !reduceMotion) {
+                contactCTA.style.transform =
+                    `translate(${x * 0.08}px, ${y * 0.08}px)`;
 
-      const imageObserver = new MutationObserver(() => {
-
-        lightboxImage.style.opacity = "0";
-        lightboxImage.style.transform = "scale(.985)";
-
-
-        requestAnimationFrame(() => {
-
-          requestAnimationFrame(() => {
-
-            lightboxImage.style.opacity = "1";
-            lightboxImage.style.transform = "scale(1)";
-
-          });
-
-        });
-
-      });
+            }
+        );
 
 
-      imageObserver.observe(lightboxImage, {
-        attributes: true,
-        attributeFilter: ["src"]
-      });
+        contactCTA.addEventListener(
+            "mouseleave",
+            () => {
 
-    }
+                contactCTA.style.transform =
+                    "translate(0, 0)";
 
+            }
+        );
 
-    /* =========================================================
-       9. REDUCED-MOTION ACCESSIBILITY
-    ========================================================= */
-
-    if (reduceMotion) {
-
-      revealElements.forEach((element) => {
-
-        element.style.opacity = "1";
-        element.style.transform = "none";
-        element.style.visibility = "visible";
-        element.style.animation = "none";
-        element.style.transition = "none";
-
-      });
-
-
-      if (hero) {
-
-        hero.querySelectorAll("*").forEach((element) => {
-
-          element.style.animation = "none";
-          element.style.transition = "none";
-          element.style.opacity = "1";
-          element.style.transform = "none";
-
-        });
-
-      }
-
-
-      if (lightbox) {
-        lightbox.style.transition = "none";
-      }
-
-
-      if (lightboxImage) {
-        lightboxImage.style.transition = "none";
-      }
-
-    }
-
-  });
-
-</script>
+    </script>
 
 </body>
 </html>
